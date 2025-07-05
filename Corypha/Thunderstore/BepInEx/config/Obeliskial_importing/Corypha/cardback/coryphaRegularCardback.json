@@ -1,0 +1,15 @@
+{
+    "AdventureLevel": 0,
+    "BaseCardback": false,
+    "CardbackID": "coryphaRegularCardback",
+    "CardbackName": "Siren",
+    "CardbackOrder": 1,
+    "CardbackSprite": "CartaCorypha",
+    "CardbackSubclass": "siren",
+    "Locked": false,
+    "ObeliskLevel": 0,
+    "RankLevel": 8,
+    "ShowIfLocked": false,
+    "Sku": "",
+    "SteamStat": ""
+}

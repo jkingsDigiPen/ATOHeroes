@@ -1,0 +1,9 @@
+{
+    "name": "Hero_Template",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/thunderstore-io",
+    "description": "Simple templates for heroes.",
+    "dependencies": [
+        "meds-Obeliskial_Content-1.2.2"
+    ]
+}

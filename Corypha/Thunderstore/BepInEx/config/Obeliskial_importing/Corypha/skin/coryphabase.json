@@ -1,0 +1,15 @@
+{
+    "BaseSkin": true,
+    "PerkLevel": 0,
+    "SkinGO": "skincorypha",
+    "SkinID": "coryphabase",
+    "SkinName": "Siren",
+    "SkinOrder": 0,
+    "SkinSubclass": "siren",
+    "Sku": "",
+    "SpritePortrait": "arielPortrait",
+    "SpritePortraitGrande": "arielPortraitGrande",
+    "SpriteSilueta": "arielSilueta",
+    "SpriteSiluetaGrande": "arielSiluetaGrande",
+    "SteamStat": ""
+}

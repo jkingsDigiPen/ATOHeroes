@@ -1,0 +1,15 @@
+{
+    "BaseSkin": false,
+    "PerkLevel": 16,
+    "SkinGO": "skincoryphamerrow",
+    "SkinID": "coryphamedium",
+    "SkinName": "Merrow",
+    "SkinOrder": 1,
+    "SkinSubclass": "siren",
+    "Sku": "",
+    "SpritePortrait": "ariel2Portrait",
+    "SpritePortraitGrande": "ariel2PortraitGrande",
+    "SpriteSilueta": "ariel2Silueta",
+    "SpriteSiluetaGrande": "ariel2SiluetaGrande",
+    "SteamStat": ""
+}

@@ -1,0 +1,15 @@
+{
+    "Card0": "bewilderstart",
+    "Card1": "captivatingvoice",
+    "Card2": "waterjet",
+    "Card3": "camouflage",
+    "Card4": "rupture",
+    "Card5": "",
+    "CardSpecial0": "",
+    "CardSpecial1": "",
+    "PackClass": "Scout",
+    "PackID": "corypha",
+    "PackName": "Corypha",
+    "PerkList": [],
+    "RequiredClass": "siren"
+}
