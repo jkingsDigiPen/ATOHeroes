@@ -1,0 +1,15 @@
+{
+    "BaseSkin": true,
+    "PerkLevel": 0,
+    "SkinGO": "skinmaelfas",
+    "SkinID": "maelfasbase",
+    "SkinName": "Castigator",
+    "SkinOrder": 0,
+    "SkinSubclass": "castigator",
+    "Sku": "",
+    "SpritePortrait": "grukliPortrait",
+    "SpritePortraitGrande": "grukliPortraitGrande",
+    "SpriteSilueta": "grukliSilueta",
+    "SpriteSiluetaGrande": "grukliSiluetaGrande",
+    "SteamStat": ""
+}
