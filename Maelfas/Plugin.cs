@@ -19,10 +19,10 @@ namespace Maelfas
 
         public static ConfigEntry<bool> EnableDebugging { get; set; }
 
-        public static string characterName = "Corypha";
+        public static string characterName = "Maelfas";
         public static string heroName = characterName;
 
-        public static string subclassName = "Siren"; // needs caps
+        public static string subclassName = "Castigator"; // needs caps
 
         public static string subclassname = subclassName.ToLower();
         public static string itemStem = subclassname;
@@ -38,13 +38,13 @@ namespace Maelfas
 
             // register with Obeliskial Essentials
             RegisterMod(
-                _name: PluginInfo.PLUGIN_NAME,
+                _name: characterName,
                 _author: "ilyendur",
-                _description: "Corypha",
+                _description: characterName,
                 _version: PluginInfo.PLUGIN_VERSION,
                 _date: ModDate,
                 _link: @"https://github.com/jkingsDigiPen",
-                _contentFolder: "Corypha",
+                _contentFolder: characterName,
                 _type: new string[3] { "content", "hero", "trait" }
             );
 

@@ -38,13 +38,13 @@ namespace Corypha
 
             // register with Obeliskial Essentials
             RegisterMod(
-                _name: PluginInfo.PLUGIN_NAME,
+                _name: characterName,
                 _author: "ilyendur",
-                _description: "Corypha",
+                _description: characterName,
                 _version: PluginInfo.PLUGIN_VERSION,
                 _date: ModDate,
                 _link: @"https://github.com/jkingsDigiPen",
-                _contentFolder: "Corypha",
+                _contentFolder: characterName,
                 _type: new string[3] { "content", "hero", "trait" }
             );
 

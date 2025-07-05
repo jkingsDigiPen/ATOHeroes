@@ -4,10 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using static UnityEngine.Mathf;
-using static Corypha.Plugin;
+using static Maelfas.Plugin;
 using System.Collections.ObjectModel;
 
-namespace Corypha
+namespace Maelfas
 {
     public class CustomFunctions
     {
