@@ -1,0 +1,15 @@
+{
+    "BaseSkin": false,
+    "PerkLevel": 16,
+    "SkinGO": "skinmaelfascorruptor",
+    "SkinID": "maelfasmedium",
+    "SkinName": "Corruptor",
+    "SkinOrder": 1,
+    "SkinSubclass": "defiler",
+    "Sku": "",
+    "SpritePortrait": "maelfas2Portrait",
+    "SpritePortraitGrande": "maelfas2PortraitGrande",
+    "SpriteSilueta": "maelfas2Silueta",
+    "SpriteSiluetaGrande": "maelfas2SiluetaGrande",
+    "SteamStat": ""
+}

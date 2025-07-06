@@ -1,0 +1,15 @@
+{
+    "BaseSkin": false,
+    "PerkLevel": 32,
+    "SkinGO": "skinmaelfasravager",
+    "SkinID": "maelfaspro",
+    "SkinName": "Ravager",
+    "SkinOrder": 2,
+    "SkinSubclass": "defiler",
+    "Sku": "",
+    "SpritePortrait": "maelfas3Portrait",
+    "SpritePortraitGrande": "maelfas3PortraitGrande",
+    "SpriteSilueta": "maelfas3Silueta",
+    "SpriteSiluetaGrande": "maelfas3SiluetaGrande",
+    "SteamStat": ""
+}
