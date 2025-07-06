@@ -404,7 +404,6 @@ namespace Maelfas
             MatchManager.Instance.CreateLogCardModification(selectedCard.InternalId, MatchManager.Instance.GetHero(_character.HeroIndex));
         }
 
-
         /// <summary>
         /// Counts all stacks of a given Aura or Curse
         /// </summary>

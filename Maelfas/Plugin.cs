@@ -7,7 +7,7 @@ using static Obeliskial_Essentials.Essentials;
 
 namespace Maelfas
 {
-    [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
+    [BepInPlugin(PluginInfo.PLUGIN_GUID, "Maelfas", PluginInfo.PLUGIN_VERSION)]
     [BepInDependency("com.stiffmeds.obeliskialessentials")]
     [BepInDependency("com.stiffmeds.obeliskialcontent")]
     [BepInProcess("AcrossTheObelisk.exe")]
@@ -22,7 +22,7 @@ namespace Maelfas
         public static string characterName = "Maelfas";
         public static string heroName = characterName;
 
-        public static string subclassName = "Castigator"; // needs caps
+        public static string subclassName = "Defiler"; // needs caps
 
         public static string subclassname = subclassName.ToLower();
         public static string itemStem = subclassname;
