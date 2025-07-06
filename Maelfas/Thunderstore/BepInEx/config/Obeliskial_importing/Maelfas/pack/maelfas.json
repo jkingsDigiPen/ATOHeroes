@@ -1,0 +1,15 @@
+{
+    "Card0": "defilerfalselife",
+    "Card1": "fanaticism",
+    "Card2": "darkoutbreak",
+    "Card3": "shadowflame",
+    "Card4": "vampirictouch",
+    "Card5": "",
+    "CardSpecial0": "",
+    "CardSpecial1": "",
+    "PackClass": "Healer",
+    "PackID": "maelfas",
+    "PackName": "Maelfas",
+    "PerkList": [],
+    "RequiredClass": "defiler"
+}
