@@ -23,7 +23,7 @@
     "DamageBonusPercentValue": 0.0,
     "DamageBonusPercentValue2": 0.0,
     "DamageBonusPercentValue3": 0.0,
-    "Description": "Thorns +1, Poison +1. When you take damage while you have Thorns, inflict 1 Poison and 1 Decay. (4 times/round)",
+    "Description": "Thorns +1, Poison +1. When you are damaged by a monster while you have Thorns, apply 1 Poison and 1 Decay to that monster. (4 times/round)",
     "HealFlatBonus": 0,
     "HealPercentBonus": 0.0,
     "HealReceivedFlatBonus": 0,
@@ -39,5 +39,5 @@
     "TimesPerTurn": 0,
     "TraitCard": "",
     "TraitCardForAllHeroes": "",
-    "TraitName": "Corrupted Spikes"
+    "TraitName": "Corrupting Thorns"
 }

@@ -23,7 +23,7 @@
     "DamageBonusPercentValue": 0.0,
     "DamageBonusPercentValue2": 0.0,
     "DamageBonusPercentValue3": 0.0,
-    "Description": "X uses. When you gain a curse, apply healing to all heroes equal to twice the amount of the curse applied.",
+    "Description": "",
     "HealFlatBonus": 0,
     "HealPercentBonus": 0.0,
     "HealReceivedFlatBonus": 0,
@@ -37,7 +37,7 @@
     "ResistModifiedValue3": 0,
     "TimesPerRound": 0,
     "TimesPerTurn": 0,
-    "TraitCard": "",
+    "TraitCard": "defilersacrifice",
     "TraitCardForAllHeroes": "",
-    "TraitName": "Unholy Sacrifice"
+    "TraitName": "Essence Transfer"
 }

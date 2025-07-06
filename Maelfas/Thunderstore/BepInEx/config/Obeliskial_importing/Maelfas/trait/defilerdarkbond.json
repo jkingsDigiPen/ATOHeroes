@@ -23,7 +23,7 @@
     "DamageBonusPercentValue": 0.0,
     "DamageBonusPercentValue2": 0.0,
     "DamageBonusPercentValue3": 0.0,
-    "Description": "X uses. Whenever the target ally takes damage, they gain 10 Block and you suffer 1 Burn and 1 Bleed.",
+    "Description": "",
     "HealFlatBonus": 0,
     "HealPercentBonus": 0.0,
     "HealReceivedFlatBonus": 0,
@@ -37,7 +37,7 @@
     "ResistModifiedValue3": 0,
     "TimesPerRound": 0,
     "TimesPerTurn": 0,
-    "TraitCard": "",
+    "TraitCard": "defilerdarkbond",
     "TraitCardForAllHeroes": "",
     "TraitName": "Dark Bond"
 }

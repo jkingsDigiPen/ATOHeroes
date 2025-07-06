@@ -23,7 +23,7 @@
     "DamageBonusPercentValue": 0.0,
     "DamageBonusPercentValue2": 0.0,
     "DamageBonusPercentValue3": 0.0,
-    "Description": "Next X spells, apply 1 Burn and 1 Dark to all enemies.",
+    "Description": "",
     "HealFlatBonus": 0,
     "HealPercentBonus": 0.0,
     "HealReceivedFlatBonus": 0,
@@ -37,7 +37,7 @@
     "ResistModifiedValue3": 0,
     "TimesPerRound": 0,
     "TimesPerTurn": 0,
-    "TraitCard": "",
+    "TraitCard": "defilerapocalypse",
     "TraitCardForAllHeroes": "",
-    "TraitName": "Apocalypse"
+    "TraitName": "Infernal Power"
 }

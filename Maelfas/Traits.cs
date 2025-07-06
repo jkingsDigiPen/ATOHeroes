@@ -69,24 +69,38 @@ namespace Maelfas
                 string curseChoice = curseOptions[UnityEngine.Random.Range(0, curseOptions.Length - 1)];
                 ApplyAuraCurseToTarget(curseChoice, 2, _character, _character, true);
 
-                // Second part handled in GetTraitDamagePercentModifiersPostfix
-                // and GetTraitHealPercentBonusPostfix
+                // (Second part handled in GetTraitDamagePercentModifiersPostfix
+                // and GetTraitHealPercentBonusPostfix)
             }
             else if(_trait == myTraitList[2])
             {
                 // Thorns on this hero no longer decrease at the end of the turn.
-                // When you gain a curse, gain thorns equal to half the stacks (rounded up).
+                // When a monster applies a curse on you, gain thorns equal to half the stacks (minimum 1).
+                // (First part handled in GlobalAuraCurseModificationByTraitsAndItemsPostfix)
+                if(GetAuraCurseData(_auxString).IsAura) return;
+                if(_target == _character) return;
+
+                ApplyAuraCurseToTarget("thorns", _auxInt > 1 ? _auxInt / 2 : 1, _character, _character, false);
             }
             else if(_trait == myTraitList[3])
             {
-                // Burn +1, Dark +1. Burn lowers shadow resist by 0.5% per stack,
-                // Dark lowers fire resist by 0.5% per stack.
+                // Dark +1, Burn +1. Dark lowers fire resist by 0.5% per stack,
+                // Burn lowers shadow resist by 0.5% per stack.
                 // Healer duality can activate four times per turn.
+                // (Handled in GlobalAuraCurseModificationByTraitsAndItemsPostfix)
             }
             else if(_trait == myTraitList[4])
             {
-               // Thorns +1, Poison +1. When you take damage while you have thorns, inflict 2 Poison and 1 Decay.
-               // (4 times/round)
+                // Thorns +1, Poison +1. When you are damaged by a monster while you have Thorns,
+                // apply 1 Poison and 1 Decay to that monster.
+                // (4 times/round)
+                if(!CanIncrementTraitActivations(_trait)) return;
+                if(_target == _character) return;
+                if(!IsLivingNPC(_target)) return;
+
+                ApplyAuraCurseToTarget("poison", 1, _target, _character, true);
+                ApplyAuraCurseToTarget("decay", 1, _target, _character, true);
+                IncrementTraitActivations(_trait);
             }
             else return;
 
@@ -125,6 +139,42 @@ namespace Maelfas
             LogInfo($"GACM {subclassName}");
 
             Character characterOfInterest = _type == "set" ? _characterTarget : _characterCaster;
+            string traitOfInterest;
+
+            switch (_acId)
+            {
+                // Dark +1, Burn +1. Dark lowers monsters' fire resist by 0.5% per stack,
+                case "dark":
+                    traitOfInterest = myTraitList[3];
+                    if (IfCharacterHas(characterOfInterest, CharacterHas.Trait, traitOfInterest, AppliesTo.Monsters))
+                    {
+                        LogInfo($"Trait {traitOfInterest} - GACM");
+                        __result = __instance.GlobalAuraCurseModifyResist(__result, Enums.DamageType.Fire, 0, -0.5f);
+                    }
+                    break;
+
+                // Burn lowers monsters' shadow resist by 0.5% per stack.
+                case "burn":
+                    traitOfInterest = myTraitList[3];
+                    if (IfCharacterHas(characterOfInterest, CharacterHas.Trait, traitOfInterest, AppliesTo.Monsters))
+                    {
+                        LogInfo($"Trait {traitOfInterest} - GACM");
+                        __result = __instance.GlobalAuraCurseModifyResist(__result, Enums.DamageType.Shadow, 0, -0.5f);
+                    }
+                    break;
+
+                case "thorns":
+                    // Thorns on this hero no longer decrease at the end of the turn.
+                    // When you gain a curse, gain thorns equal to half the stacks (rounded up).
+                    traitOfInterest = myTraitList[2];
+                    if(IfCharacterHas(characterOfInterest, CharacterHas.Trait, traitOfInterest, AppliesTo.ThisHero))
+                    {
+                        LogInfo($"Trait {traitOfInterest} - GACM");
+                        __result.ConsumedAtTurn = false;
+                        __result.AuraConsumed = 0;
+                    }
+                    break;
+            }
         }
 
         [HarmonyPostfix]

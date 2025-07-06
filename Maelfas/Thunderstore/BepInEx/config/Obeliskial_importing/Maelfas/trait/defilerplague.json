@@ -23,7 +23,7 @@
     "DamageBonusPercentValue": 0.0,
     "DamageBonusPercentValue2": 0.0,
     "DamageBonusPercentValue3": 0.0,
-    "Description": "At the start of your turn, gain 2 of either Poison, Bleed, Burn, or Dark, chosen randomly. Gain a percent bonus to damage and healing equal to the number of total curse stacks on this hero.",
+    "Description": "At the start of your turn, suffer 2 charges of either Poison, Burn, or Dark, chosen randomly. Gain a percent bonus to damage and healing equal to the number of total curse charges on this hero.",
     "HealFlatBonus": 0,
     "HealPercentBonus": 0.0,
     "HealReceivedFlatBonus": 0,
