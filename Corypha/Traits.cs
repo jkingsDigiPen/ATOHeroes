@@ -164,35 +164,5 @@ namespace Corypha
                     break;
             }
         }
-
-        [HarmonyPostfix]
-        [HarmonyPatch(typeof(Globals), "CreateGameContent")]
-        public static void CreateGameContentPostfix()
-        {
-            SubClassData corypha = Globals.Instance?.GetSubClassData("siren");
-
-            if (!corypha)
-            {
-                LogDebug("CreateGameContentPostfix - Null Corypha");
-                return;
-            }
-
-            Dictionary<string, SubClassData> _SubClass = Traverse.Create(Globals.Instance).Field("_SubClass").GetValue<Dictionary<string, SubClassData>>();
-            _SubClass["siren"] = corypha;
-            Traverse.Create(Globals.Instance).Field("_SubClass").SetValue(_SubClass);
-
-            LogDebug("CreateGameContentPostfix - Set changes");
-        }
-
-        [HarmonyPostfix]
-        [HarmonyPatch(typeof(HeroItem), "Init")]
-        public static void InitPostfix(ref HeroItem __instance)
-        {
-            LogDebug($"Init HeroItem for {__instance.Hero.SubclassName}");
-            if (__instance.Hero.SubclassName.ToLower() != "siren")
-            {
-                return;
-            }
-        }
     }
 }

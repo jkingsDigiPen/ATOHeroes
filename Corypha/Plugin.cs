@@ -7,7 +7,7 @@ using static Obeliskial_Essentials.Essentials;
 
 namespace Corypha
 {
-    [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
+    [BepInPlugin(PluginInfo.PLUGIN_GUID, "Corypha", PluginInfo.PLUGIN_VERSION)]
     [BepInDependency("com.stiffmeds.obeliskialessentials")]
     [BepInDependency("com.stiffmeds.obeliskialcontent")]
     [BepInProcess("AcrossTheObelisk.exe")]
@@ -33,8 +33,8 @@ namespace Corypha
             Log = Logger;
             Log.LogInfo($"{PluginInfo.PLUGIN_GUID} {PluginInfo.PLUGIN_VERSION} has loaded!");
 
-             EnableDebugging = Config.Bind(new ConfigDefinition(subclassName, "Enable Debugging"), true, 
-                 new ConfigDescription("Enables debugging logs."));
+            EnableDebugging = Config.Bind(new ConfigDefinition(subclassName, "Enable Debugging"), true, 
+                new ConfigDescription("Enables debugging logs."));
 
             // register with Obeliskial Essentials
             RegisterMod(
