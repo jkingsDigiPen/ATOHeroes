@@ -5,6 +5,7 @@ using System.Linq;
 using Obeliskial_Content;
 using static Maelfas.CustomFunctions;
 using static Maelfas.Plugin;
+using UnityEngine.TextCore.Text;
 
 namespace Maelfas
 {
@@ -14,7 +15,16 @@ namespace Maelfas
         // list of your trait IDs
         public static string[] myTraitList = 
         { 
+            "defilerduality",
+            "defilerplague",
+            "defilersuffering",
+            "defilerflickershadow",
+            "defilerspikes"
         };
+
+        public static bool isDamagePreviewActive = false;
+
+        public static bool isCalculateDamageActive = false;
 
         public static void myDoTrait(string _trait, ref Trait __instance)
         {
@@ -42,23 +52,41 @@ namespace Maelfas
             // activate traits
             if (_trait == myTraitList[0])
             {
-                
+                // When you play a Healer card, reduce the cost of the highest cost Warrior card
+                // in your hand by 1 until discarded. When you play a Warrior card, reduce the
+                // cost of the highest cost Healer card in your hand by 1 until discarded. (3 times/turn)
+                // (4x if you have apocalypse)
+                int bonusActivations = _character.HaveTrait(myTraitList[3]) ? 1 : 0;
+                Duality(ref _character,ref _castedCard, Enums.CardClass.Warrior, 
+                    Enums.CardClass.Healer, _trait, bonusActivations : bonusActivations);
             }
             else if(_trait == myTraitList[1])
             {
-                
+                // At the start of your turn, gain 2 of Poison, Burn, or Dark.
+                // Gain a percent bonus to damage and healing equal to the number of total
+                // curse stacks on this hero.
+                string[] curseOptions = { "poison", "burn", "dark" };
+                string curseChoice = curseOptions[UnityEngine.Random.Range(0, curseOptions.Length - 1)];
+                ApplyAuraCurseToTarget(curseChoice, 2, _character, _character, true);
+
+                // Second part handled in GetTraitDamagePercentModifiersPostfix
+                // and GetTraitHealPercentBonusPostfix
             }
             else if(_trait == myTraitList[2])
             {
-                
+                // Thorns on this hero no longer decrease at the end of the turn.
+                // When you gain a curse, gain thorns equal to half the stacks (rounded up).
             }
             else if(_trait == myTraitList[3])
             {
-                
+                // Burn +1, Dark +1. Burn lowers shadow resist by 0.5% per stack,
+                // Dark lowers fire resist by 0.5% per stack.
+                // Healer duality can activate four times per turn.
             }
             else if(_trait == myTraitList[4])
             {
-               
+               // Thorns +1, Poison +1. When you take damage while you have thorns, inflict 2 Poison and 1 Decay.
+               // (4 times/round)
             }
             else return;
 
@@ -100,33 +128,107 @@ namespace Maelfas
         }
 
         [HarmonyPostfix]
-        [HarmonyPatch(typeof(Globals), "CreateGameContent")]
-        public static void CreateGameContentPostfix()
+        [HarmonyPatch(typeof(Character), nameof(Character.GetTraitDamagePercentModifiers))]
+        public static void GetTraitDamagePercentModifiersPostfix(ref Character __instance, ref float __result, Enums.DamageType DamageType)
         {
-            SubClassData maelfas = Globals.Instance?.GetSubClassData("castigator");
+            // LogInfo("GetTraitDamagePercentModifiersPostfix");
 
-            if (!maelfas)
-            {
-                LogDebug("CreateGameContentPostfix - Null Maelfas");
+            if (isDamagePreviewActive || isCalculateDamageActive)
                 return;
+
+            if (IsLivingHero(__instance) && AtOManager.Instance != null 
+                && AtOManager.Instance.CharacterHaveTrait(__instance.SubclassName, myTraitList[1]) 
+                && MatchManager.Instance != null)
+            {
+                LogDebug("GetTraitDamagePercentModifiersPostfix - post conditional");
+                if (__instance.GetCurseList() == null)
+                {
+                    LogDebug("Empty CurseList");
+                    return;
+                }
+
+                // Gain a percent bonus to damage and healing equal to the number of total
+                // curse stacks on this hero.
+                int numCurseStacks = 0;
+                for(int i = 0; i < __instance.AuraList.Count; i++)
+                {
+                    if(__instance.AuraList[i] == null) continue;
+
+                    Aura aura = __instance.AuraList[i];
+
+                    if(aura.ACData.IsAura) continue;
+
+                    numCurseStacks += aura.GetCharges();
+                }
+
+                LogDebug("GetTraitDamagePercentModifiersPostfix - numCurseStacks = " + numCurseStacks);
+                __result += numCurseStacks;
             }
-
-            Dictionary<string, SubClassData> _SubClass = Traverse.Create(Globals.Instance).Field("_SubClass").GetValue<Dictionary<string, SubClassData>>();
-            _SubClass["castigator"] = maelfas;
-            Traverse.Create(Globals.Instance).Field("_SubClass").SetValue(_SubClass);
-
-            LogDebug("CreateGameContentPostfix - Set changes");
         }
 
         [HarmonyPostfix]
-        [HarmonyPatch(typeof(HeroItem), "Init")]
-        public static void InitPostfix(ref HeroItem __instance)
+        [HarmonyPatch(typeof(Character), nameof(Character.GetTraitHealPercentBonus))]
+        public static void GetTraitHealPercentBonusPostfix(ref Character __instance, ref float __result)
         {
-            LogDebug($"Init HeroItem for {__instance.Hero.SubclassName}");
-            if (__instance.Hero.SubclassName.ToLower() != "castigator")
-            {
+            // LogInfo("GetTraitHealPercentBonusPostfix");
+
+            if (isDamagePreviewActive || isCalculateDamageActive)
                 return;
+
+            if (IsLivingHero(__instance) && AtOManager.Instance != null 
+                && AtOManager.Instance.CharacterHaveTrait(__instance.SubclassName, myTraitList[1]) 
+                && MatchManager.Instance != null)
+            {
+                // LogDebug("GetTraitHealPercentBonusPostfix - post conditional");
+                if (__instance.GetCurseList() == null)
+                {
+                    LogDebug("Empty CurseList");
+                    return;
+                }
+
+                // Gain a percent bonus to damage and healing equal to the number of total
+                // curse stacks on this hero.
+                int numCurseStacks = 0;
+                for(int i = 0; i < __instance.AuraList.Count; i++)
+                {
+                    if(__instance.AuraList[i] == null) continue;
+
+                    Aura aura = __instance.AuraList[i];
+
+                    if(aura.ACData.IsAura) continue;
+
+                    numCurseStacks += aura.GetCharges();
+                }
+
+                LogDebug("GetTraitHealPercentBonusPostfix - numCurseStacks = " + numCurseStacks);
+                __result += numCurseStacks;
             }
+        }
+
+        [HarmonyPrefix]
+        [HarmonyPatch(typeof(MatchManager), nameof(MatchManager.SetDamagePreview))]
+        public static void SetDamagePreviewPrefix()
+        {
+            isDamagePreviewActive = true;
+        }
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(MatchManager), nameof(MatchManager.SetDamagePreview))]
+        public static void SetDamagePreviewPostfix()
+        {
+            isDamagePreviewActive = false;
+        }
+
+        [HarmonyPrefix]
+        [HarmonyPatch(typeof(CharacterItem), nameof(CharacterItem.CalculateDamagePrePostForThisCharacter))]
+        public static void CalculateDamagePrePostForThisCharacterPrefix()
+        {
+            isCalculateDamageActive = true;
+        }
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(CharacterItem), nameof(CharacterItem.CalculateDamagePrePostForThisCharacter))]
+        public static void CalculateDamagePrePostForThisCharacterPostfix()
+        {
+            isCalculateDamageActive = false;
         }
     }
 }
