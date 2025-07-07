@@ -33,8 +33,8 @@ namespace Maelfas
             Log = Logger;
             Log.LogInfo($"{PluginInfo.PLUGIN_GUID} {PluginInfo.PLUGIN_VERSION} has loaded!");
 
-             EnableDebugging = Config.Bind(new ConfigDefinition(subclassName, "Enable Debugging"), true, 
-                 new ConfigDescription("Enables debugging logs."));
+            EnableDebugging = Config.Bind(new ConfigDefinition(subclassName, "Enable Debugging"), true, 
+                new ConfigDescription("Enables debugging logs."));
 
             // register with Obeliskial Essentials
             RegisterMod(
@@ -58,7 +58,6 @@ namespace Maelfas
             {
                 Log.LogDebug(debugBase + msg);
             }
-
         }
         internal static void LogInfo(string msg)
         {
