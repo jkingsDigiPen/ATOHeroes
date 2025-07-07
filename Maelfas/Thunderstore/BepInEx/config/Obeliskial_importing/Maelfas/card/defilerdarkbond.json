@@ -87,7 +87,7 @@
     "LookCardsDiscardUpTo": 0,
     "LookCardsVanishUpTo": 0,
     "SelfHealthLoss": 0,
-    "Sound": "",
+    "Sound": "parry",
     "SoundPreAction": "",
     "SoundPreActionFemale": "",
     "Sprite": "defilerdarkbond",
