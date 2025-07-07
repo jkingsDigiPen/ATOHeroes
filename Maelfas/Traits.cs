@@ -6,6 +6,7 @@ using Obeliskial_Content;
 using static Maelfas.CustomFunctions;
 using static Maelfas.Plugin;
 using UnityEngine.TextCore.Text;
+using Paradox;
 
 namespace Maelfas
 {
@@ -63,7 +64,7 @@ namespace Maelfas
             else if(_trait == myTraitList[1])
             {
                 // At the start of your turn, gain 2 of Poison, Burn, or Dark.
-                // Gain a percent bonus to damage and healing equal to the number of total
+                // Gain a percent bonus to damage and healing equal to the total number of
                 // curse stacks on this hero.
                 string[] curseOptions = { "poison", "burn", "dark" };
                 string curseChoice = curseOptions[UnityEngine.Random.Range(0, curseOptions.Length - 1)];
@@ -75,12 +76,10 @@ namespace Maelfas
             else if(_trait == myTraitList[2])
             {
                 // Thorns on this hero no longer decrease at the end of the turn.
-                // When a monster applies a curse on you, gain thorns equal to half the stacks (minimum 1).
+                // When a monster applies a curse on you, heal and gain thorns equal to the number of charges.
+                // These amounts do not gain bonuses.
                 // (First part handled in GlobalAuraCurseModificationByTraitsAndItemsPostfix)
-                if(GetAuraCurseData(_auxString).IsAura) return;
-                if(_target == _character) return;
-
-                ApplyAuraCurseToTarget("thorns", _auxInt > 1 ? _auxInt / 2 : 1, _character, _character, false);
+                // (Second part handled in SetAuraPostfix)
             }
             else if(_trait == myTraitList[3])
             {
@@ -104,7 +103,7 @@ namespace Maelfas
             }
             else return;
 
-            LogInfo($"Trait {_trait}");
+            LogDebug($"Trait {_trait}");
         }
 
         [HarmonyPrefix]
@@ -136,7 +135,7 @@ namespace Maelfas
         public static void GlobalAuraCurseModificationByTraitsAndItemsPostfix(ref AtOManager __instance, 
             ref AuraCurseData __result, string _type, string _acId, Character _characterCaster, Character _characterTarget)
         {
-            LogInfo($"GACM {subclassName}");
+            //LogDebug($"GACM {subclassName}");
 
             Character characterOfInterest = _type == "set" ? _characterTarget : _characterCaster;
             string traitOfInterest;
@@ -148,7 +147,7 @@ namespace Maelfas
                     traitOfInterest = myTraitList[3];
                     if (IfCharacterHas(characterOfInterest, CharacterHas.Trait, traitOfInterest, AppliesTo.Monsters))
                     {
-                        LogInfo($"Trait {traitOfInterest} - GACM");
+                        LogDebug($"Trait {traitOfInterest} - GACM");
                         __result = __instance.GlobalAuraCurseModifyResist(__result, Enums.DamageType.Fire, 0, -0.5f);
                     }
                     break;
@@ -158,18 +157,17 @@ namespace Maelfas
                     traitOfInterest = myTraitList[3];
                     if (IfCharacterHas(characterOfInterest, CharacterHas.Trait, traitOfInterest, AppliesTo.Monsters))
                     {
-                        LogInfo($"Trait {traitOfInterest} - GACM");
+                        LogDebug($"Trait {traitOfInterest} - GACM");
                         __result = __instance.GlobalAuraCurseModifyResist(__result, Enums.DamageType.Shadow, 0, -0.5f);
                     }
                     break;
 
                 case "thorns":
-                    // Thorns on this hero no longer decrease at the end of the turn.
-                    // When you gain a curse, gain thorns equal to half the stacks (rounded up).
+                    // Thorns +1. Thorns on this hero no longer decrease at the end of the turn.
                     traitOfInterest = myTraitList[2];
                     if(IfCharacterHas(characterOfInterest, CharacterHas.Trait, traitOfInterest, AppliesTo.ThisHero))
                     {
-                        LogInfo($"Trait {traitOfInterest} - GACM");
+                        LogDebug($"Trait {traitOfInterest} - GACM");
                         __result.ConsumedAtTurn = false;
                         __result.AuraConsumed = 0;
                     }
@@ -178,10 +176,32 @@ namespace Maelfas
         }
 
         [HarmonyPostfix]
+        [HarmonyPatch(typeof(Character), nameof(Character.SetAura))]
+        public static void SetAuraPostfix(ref Character __instance, ref int __result, Character theCaster, AuraCurseData _acData, int charges, bool fromTrait, Enums.CardClass CC, bool useCharacterMods, bool canBePreventable)
+        {
+            //LogDebug($"SetAura {subclassName}");
+
+            if (!_acData.IsAura && IsLivingHero(__instance) && IsLivingNPC(theCaster))
+            {
+                // When a monster applies a curse on you, gain thorns equal to the number of charges
+                // and heal yourself for twice that amount.
+                // These amounts do not gain bonuses.
+                string traitOfInterest = myTraitList[2];
+                if (__instance.SubclassName == subclassname && AtOManager.Instance.CharacterHaveTrait(__instance.SubclassName, traitOfInterest))
+                {
+                    LogInfo($"{theCaster.GameName} applies {charges} {_acData.ACName} to {__instance.GameName}");
+                    LogInfo($"{subclassName} - {traitOfInterest}: {charges} thorns and {2 * charges} heal");
+                    ApplyAuraCurseToTarget("thorns", charges, __instance, __instance, false);
+                    TraitHeal(ref __instance, __instance, 2 * charges, traitOfInterest);
+                }
+            }
+        }
+
+        [HarmonyPostfix]
         [HarmonyPatch(typeof(Character), nameof(Character.GetTraitDamagePercentModifiers))]
         public static void GetTraitDamagePercentModifiersPostfix(ref Character __instance, ref float __result, Enums.DamageType DamageType)
         {
-            // LogInfo("GetTraitDamagePercentModifiersPostfix");
+            //LogDebug("GetTraitDamagePercentModifiersPostfix");
 
             if (isDamagePreviewActive || isCalculateDamageActive)
                 return;
@@ -211,7 +231,7 @@ namespace Maelfas
                     numCurseStacks += aura.GetCharges();
                 }
 
-                LogDebug("GetTraitDamagePercentModifiersPostfix - numCurseStacks = " + numCurseStacks);
+                LogDebug("GetTraitDamagePercentModifiers - curseStacks = " + numCurseStacks);
                 __result += numCurseStacks;
             }
         }
@@ -220,7 +240,7 @@ namespace Maelfas
         [HarmonyPatch(typeof(Character), nameof(Character.GetTraitHealPercentBonus))]
         public static void GetTraitHealPercentBonusPostfix(ref Character __instance, ref float __result)
         {
-            // LogInfo("GetTraitHealPercentBonusPostfix");
+            //LogDebug("GetTraitHealPercentBonusPostfix");
 
             if (isDamagePreviewActive || isCalculateDamageActive)
                 return;
@@ -229,7 +249,7 @@ namespace Maelfas
                 && AtOManager.Instance.CharacterHaveTrait(__instance.SubclassName, myTraitList[1]) 
                 && MatchManager.Instance != null)
             {
-                // LogDebug("GetTraitHealPercentBonusPostfix - post conditional");
+                LogDebug("GetTraitHealPercentBonusPostfix - post conditional");
                 if (__instance.GetCurseList() == null)
                 {
                     LogDebug("Empty CurseList");
@@ -250,7 +270,7 @@ namespace Maelfas
                     numCurseStacks += aura.GetCharges();
                 }
 
-                LogDebug("GetTraitHealPercentBonusPostfix - numCurseStacks = " + numCurseStacks);
+                LogDebug("GetTraitHealPercentBonus - curseStacks = " + numCurseStacks);
                 __result += numCurseStacks;
             }
         }

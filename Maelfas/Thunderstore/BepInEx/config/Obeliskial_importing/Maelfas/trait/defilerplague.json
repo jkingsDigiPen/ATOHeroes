@@ -23,7 +23,7 @@
     "DamageBonusPercentValue": 0.0,
     "DamageBonusPercentValue2": 0.0,
     "DamageBonusPercentValue3": 0.0,
-    "Description": "At the start of your turn, suffer 2 charges of either Poison, Burn, or Dark, chosen randomly. Gain a percent bonus to damage and healing equal to the number of total curse charges on this hero.",
+    "Description": "At the start of your turn, suffer 2 charges of either Poison, Burn, or Dark, chosen randomly. Gain a percent bonus to all damage and healing equal to the total number of curse charges on this hero.",
     "HealFlatBonus": 0,
     "HealPercentBonus": 0.0,
     "HealReceivedFlatBonus": 0,
@@ -36,7 +36,7 @@
     "ResistModifiedValue2": 0,
     "ResistModifiedValue3": 0,
     "TimesPerRound": 0,
-    "TimesPerTurn": 3,
+    "TimesPerTurn": 0,
     "TraitCard": "",
     "TraitCardForAllHeroes": "",
     "TraitName": "Masochist"

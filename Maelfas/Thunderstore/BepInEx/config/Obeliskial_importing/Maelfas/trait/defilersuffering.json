@@ -1,5 +1,5 @@
 {
-    "Activation": "AuraCurseSet",
+    "Activation": "None",
     "AuraCurseBonus1": "thorns",
     "AuraCurseBonus2": "",
     "AuraCurseBonus3": "",
@@ -23,7 +23,7 @@
     "DamageBonusPercentValue": 0.0,
     "DamageBonusPercentValue2": 0.0,
     "DamageBonusPercentValue3": 0.0,
-    "Description": "Thorns +1. Thorns on this hero no longer loses charges at the end of the turn. When a monster applies a curse on you, gain thorns equal to half the charges applied (minimum 1). -This amount does not benefit from bonuses.-",
+    "Description": "Thorns +1. Thorns on this hero no longer loses charges at the end of the turn. When a monster applies any curse on you, gain Thorns equal to the number of curse charges applied and heal yourself for twice that amount. -These amounts do not gain bonuses-",
     "HealFlatBonus": 0,
     "HealPercentBonus": 0.0,
     "HealReceivedFlatBonus": 0,

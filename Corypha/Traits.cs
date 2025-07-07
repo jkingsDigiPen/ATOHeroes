@@ -103,7 +103,7 @@ namespace Corypha
             }
             else return;
 
-            LogInfo($"Trait {_trait}");
+            LogDebug($"Trait {_trait}");
         }
 
         [HarmonyPrefix]
@@ -135,7 +135,7 @@ namespace Corypha
         public static void GlobalAuraCurseModificationByTraitsAndItemsPostfix(ref AtOManager __instance, 
             ref AuraCurseData __result, string _type, string _acId, Character _characterCaster, Character _characterTarget)
         {
-            LogInfo($"GACM {subclassName}");
+            //LogDebug($"GACM {subclassName}");
 
             Character characterOfInterest = _type == "set" ? _characterTarget : _characterCaster;
             string traitOfInterest;
@@ -147,7 +147,7 @@ namespace Corypha
                     traitOfInterest = myTraitList[0];
                     if (IfCharacterHas(characterOfInterest, CharacterHas.Trait, traitOfInterest, AppliesTo.Monsters))
                     {
-                        LogInfo($"Trait {traitOfInterest} - GACM");
+                        LogDebug($"Trait {traitOfInterest} - GACM");
                         __result = __instance.GlobalAuraCurseModifyResist(__result, Enums.DamageType.Mind, 0, -1.0f);
                     }
 
@@ -157,7 +157,7 @@ namespace Corypha
                     traitOfInterest = myTraitList[1];
                     if(IfCharacterHas(characterOfInterest, CharacterHas.Trait, traitOfInterest, AppliesTo.ThisHero))
                     {
-                        LogInfo($"Trait {traitOfInterest} - GACM");
+                        LogDebug($"Trait {traitOfInterest} - GACM");
                         __result.ConsumedAtTurn = false;
                         __result.AuraConsumed = 0;
                     }
