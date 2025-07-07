@@ -1132,7 +1132,7 @@ namespace Corypha
         /// <param name="isPreventable">whether or not the AC can be buffered</param>
         public static void ApplyAuraCurseToTarget(string acToApply, int nToApply, Character targetCharacter, Character sourceCharacter = null, bool useCharacterMods = false, bool isPreventable = true)
         {
-            LogInfo("ApplyAuraCurseToTarget");
+            LogDebug("ApplyAuraCurseToTarget");
             if (MatchManager.Instance == null) { LogError("No MatchManager"); return; }
             if (sourceCharacter == null && useCharacterMods) { LogError("No Source Character"); return; }
 
@@ -1159,7 +1159,7 @@ namespace Corypha
         /// <param name="isPreventable">whether or not the AC can be buffered</param>
         public static void ApplyAuraCurseToAll(string acToApply, int nToApply, AppliesTo appliesTo, Character sourceCharacter = null, bool useCharacterMods = false, bool isPreventable = true)
         {
-            LogInfo("ApplyAuraCurseToAll");
+            LogDebug("ApplyAuraCurseToAll");
             if (MatchManager.Instance == null) { LogError("No MatchManager"); return; }
             if (sourceCharacter == null && useCharacterMods) { LogError("No Source Character"); return; }
 
