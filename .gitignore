@@ -419,3 +419,4 @@ FodyWeavers.xsd
 
 # Dynamic Libraries
 *.dll
+/jbk_ato_mods.zip
