@@ -189,8 +189,8 @@ namespace Maelfas
                 string traitOfInterest = myTraitList[2];
                 if (__instance.SubclassName == subclassname && AtOManager.Instance.CharacterHaveTrait(__instance.SubclassName, traitOfInterest))
                 {
-                    LogInfo($"{theCaster.GameName} applies {charges} {_acData.ACName} to {__instance.GameName}");
-                    LogInfo($"{subclassName} - {traitOfInterest}: {charges} thorns and {2 * charges} heal");
+                    //LogDebug($"{theCaster.GameName} applies {charges} {_acData.ACName} to {__instance.GameName}");
+                    LogDebug($"{subclassName} - {traitOfInterest}: {charges} thorns and {2 * charges} heal");
                     ApplyAuraCurseToTarget("thorns", charges, __instance, __instance, false);
                     TraitHeal(ref __instance, __instance, 2 * charges, traitOfInterest);
                 }
@@ -217,9 +217,10 @@ namespace Maelfas
                     return;
                 }
 
-                // Gain a percent bonus to damage and healing equal to the number of total
-                // curse stacks on this hero.
-                int numCurseStacks = 0;
+                // You gain a percent bonus to all damage and healing based on the amount of curse
+                // charges you have: 6% for each unique curse, plus an addition 6% for every 6 charges
+                // you have of each of those curses.
+                int percentIncrease = 0;
                 for(int i = 0; i < __instance.AuraList.Count; i++)
                 {
                     if(__instance.AuraList[i] == null) continue;
@@ -228,11 +229,11 @@ namespace Maelfas
 
                     if(aura.ACData.IsAura) continue;
 
-                    numCurseStacks += aura.GetCharges();
+                    percentIncrease += 6 * (aura.GetCharges() / 6 + 1);
                 }
 
-                LogDebug("GetTraitDamagePercentModifiers - curseStacks = " + numCurseStacks);
-                __result += numCurseStacks;
+                LogInfo("GetTraitDamagePercentModifiers - percent from curse charges = " + percentIncrease);
+                __result += percentIncrease;
             }
         }
 
@@ -256,9 +257,10 @@ namespace Maelfas
                     return;
                 }
 
-                // Gain a percent bonus to damage and healing equal to the number of total
-                // curse stacks on this hero.
-                int numCurseStacks = 0;
+                // You gain a percent bonus to all damage and healing based on the amount of curse
+                // charges you have: 6% for each unique curse, plus an addition 6% for every 6 charges
+                // you have of each of those curses.
+                int percentIncrease = 0;
                 for(int i = 0; i < __instance.AuraList.Count; i++)
                 {
                     if(__instance.AuraList[i] == null) continue;
@@ -267,11 +269,11 @@ namespace Maelfas
 
                     if(aura.ACData.IsAura) continue;
 
-                    numCurseStacks += aura.GetCharges();
+                    percentIncrease += 6 * (aura.GetCharges() / 6 + 1);
                 }
 
-                LogDebug("GetTraitHealPercentBonus - curseStacks = " + numCurseStacks);
-                __result += numCurseStacks;
+                LogDebug("GetTraitHealPercentBonus - curseStacks = " + percentIncrease);
+                __result += percentIncrease;
             }
         }
 
