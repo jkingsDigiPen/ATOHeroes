@@ -49,7 +49,7 @@
     "DispelAuras": 0,
     "DrawCard": 0,
     "EffectCastCenter": true,
-    "EffectCaster": "melecast1",
+    "EffectCaster": "",
     "EffectCasterRepeat": true,
     "EffectPreAction": "",
     "EffectTarget": "icytornado",

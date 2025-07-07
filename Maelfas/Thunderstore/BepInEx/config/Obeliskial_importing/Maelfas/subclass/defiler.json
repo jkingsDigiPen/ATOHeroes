@@ -3,9 +3,9 @@
     "AutoUnlock": true,
     "Cards": [
 				"{\n    \"UnitsInDeck\": 4,\n    \"Card\": \"defilerpommel\"\n}",
-        "{\n    \"UnitsInDeck\": 3,\n    \"Card\": \"vampirictouch\"\n}",
-				"{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"spikedball\"\n}",
-        "{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"barbedwire\"\n}",
+				"{\n    \"UnitsInDeck\": 3,\n    \"Card\": \"spikedball\"\n}",
+				"{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"thorneaterwarr\"\n}",
+				"{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"defilerheatshield\"\n}",
 				"{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"shadowflame\"\n}",
         "{\n    \"UnitsInDeck\": 1,\n    \"Card\": \"darkoutbreak\"\n}",
         "{\n    \"UnitsInDeck\": 1,\n    \"Card\": \"defilerfalselife\"\n}"
@@ -27,8 +27,8 @@
     "FluffOffsetY": 3.4000000953674318,
     "HeroClass": "Warrior",
     "HeroClassSecondary": "Healer",
-    "HitSound": "vx_pc_grukli_hurt_02",
-    "HP": 86,
+    "HitSound": "Orc1",
+    "HP": 96,
     "ID": "defiler",
     "Item": "defilerflail",
     "MaxHP": [
@@ -39,13 +39,13 @@
         7
     ],
     "OrderInList": 5,
-    "ResistSlashing": 5,
+    "ResistSlashing": 10,
     "ResistBlunt": 10,
-    "ResistPiercing": 5,
+    "ResistPiercing": 10,
     "ResistFire": 15,
     "ResistCold": 0,
-    "ResistLightning": 5,
-    "ResistHoly": 5,
+    "ResistLightning": 0,
+    "ResistHoly": 0,
     "ResistShadow": 15,
     "ResistMind": 0,
     "Speed": 15,
@@ -75,12 +75,12 @@
         "darkoutbreak",
         "defilerfalselife",
         "vilelance",
-        "vilegas",
+        "stockade",
         "spikedshield",
         "innerfire",
         "profane",
-        "holynova",
-        "sacredbolt",
-        "sunbeam"
+        "defilerheatshield",
+        "thorneaterwarr",
+        "defilerpommel"
     ]
 }

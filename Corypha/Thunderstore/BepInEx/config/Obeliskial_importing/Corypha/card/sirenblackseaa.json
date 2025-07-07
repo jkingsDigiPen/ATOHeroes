@@ -49,7 +49,7 @@
     "DispelAuras": 0,
     "DrawCard": 0,
     "EffectCastCenter": false,
-    "EffectCaster": "blacksea",
+    "EffectCaster": null,
     "EffectCasterRepeat": false,
     "EffectPreAction": "",
     "EffectTarget": "poisonimpact",

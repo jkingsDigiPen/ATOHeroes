@@ -5,6 +5,7 @@ using System.Linq;
 using Obeliskial_Content;
 using static Corypha.CustomFunctions;
 using static Corypha.Plugin;
+using UnityEngine;
 
 namespace Corypha
 {
@@ -48,16 +49,18 @@ namespace Corypha
             if (_trait == myTraitList[0])
             {
                 // Wet +1, Chill +1. Wet on enemies also reduces their Mind resistance by 1% per charge.
-                // (Handled in GlobalAuraCurseModificationByTraitsAndItemsPostFix)
+                // (Handled in GACMByTraitsAndItemsPostFix)
             }
             else if(_trait == myTraitList[1])
             {
-                // Wet on this hero does not lose charges at the end of the turn.
+                // Wet on this hero no longer increases lightning damage taken
+                // and does not lose charges at the end of the turn.
                 // At the end of your turn, suffer 1 Wet and if you have at least
                 // 4 Wet charges, gain 1 Stealth.
+                // (First part handled in GACMByTraitsAndItemsPostfix)
                 ApplyAuraCurseToTarget("wet", 1, _character, _character, true);
 
-                if(_character.GetAuraCharges("wet") >= 4)
+                if(_character.GetAuraCharges("wet") >= 5)
                 {
                     ApplyAuraCurseToTarget("stealth", 1, _character, _character, true);
                 }
@@ -151,13 +154,13 @@ namespace Corypha
                         __result = __instance.GlobalAuraCurseModifyResist(__result, Enums.DamageType.Mind, 0, -1.0f);
                     }
 
-                    // Wet on this hero does not lose charges at the end of the turn.
-                    // At the end of your turn, suffer 1 Wet and if you have at least
-                    // 4 Wet charges, gain 1 Stealth.
+                    // Wet on this hero no longer increases lightning damage taken and does not
+                    // lose charges at the end of the turn.
                     traitOfInterest = myTraitList[1];
                     if(IfCharacterHas(characterOfInterest, CharacterHas.Trait, traitOfInterest, AppliesTo.ThisHero))
                     {
                         LogDebug($"Trait {traitOfInterest} - GACM");
+                        __result.AuraDamageIncreasedPerStack = 0;
                         __result.ConsumedAtTurn = false;
                         __result.AuraConsumed = 0;
                     }
