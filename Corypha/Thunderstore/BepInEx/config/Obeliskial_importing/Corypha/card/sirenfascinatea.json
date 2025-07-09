@@ -47,7 +47,7 @@
     "DispelAuras": 0,
     "DrawCard": 0,
     "EffectCastCenter": false,
-    ""EffectCaster": "mindimpact1",
+    "EffectCaster": "mindimpact1",
     "EffectCasterRepeat": false,
     "EffectPreAction": "",
     "EffectTarget": "mindimpactener",

@@ -19,7 +19,8 @@
     "CardClass": "Mage",
     "CardType": "Shadow_Spell",
     "CardTypeAux": [
-        "Spell"
+        "Cold_Spell",
+				"Spell"
     ],
     "CardName": "Ink Blast",
     "CardRarity": "Uncommon",
