@@ -53,6 +53,8 @@
   </ItemGroup>
   
   <ItemGroup>
+    <Folder Include="Thunderstore\BepInEx\config\Obeliskial_importing\Gorio\" />
+    <Folder Include="Thunderstore\BepInEx\config\Obeliskial_importing\Gorio\subclass\" />
     <Folder Include="Thunderstore\BepInEx\plugins\" />
   </ItemGroup>
   
