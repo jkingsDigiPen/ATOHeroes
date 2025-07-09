@@ -51,4 +51,12 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="Thunderstore\BepInEx\plugins\" />
+  </ItemGroup>
+  
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy /y $(OutDir)$(AssemblyName).dll Thunderstore\BepInEx\plugins\" />
+  </Target>
 </Project>

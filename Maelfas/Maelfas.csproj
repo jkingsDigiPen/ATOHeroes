@@ -52,4 +52,8 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy /y $(OutDir)$(AssemblyName).dll Thunderstore\BepInEx\plugins\" />
+  </Target>
+
 </Project>
