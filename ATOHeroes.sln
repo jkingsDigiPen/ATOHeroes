@@ -5,7 +5,9 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Corypha", "Corypha\Corypha.csproj", "{38D3EBC8-EC61-48C2-81F7-413D823E4484}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maelfas", "Maelfas\Maelfas.csproj", "{C2D5EB0A-DF92-4EBB-B1AD-02AF9F5EAA49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maelfas", "Maelfas\Maelfas.csproj", "{C2D5EB0A-DF92-4EBB-B1AD-02AF9F5EAA49}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gorio", "Gorio\Gorio.csproj", "{64F10E0C-3E1B-4939-BDE3-2FA5A7829614}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C2D5EB0A-DF92-4EBB-B1AD-02AF9F5EAA49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2D5EB0A-DF92-4EBB-B1AD-02AF9F5EAA49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2D5EB0A-DF92-4EBB-B1AD-02AF9F5EAA49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64F10E0C-3E1B-4939-BDE3-2FA5A7829614}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64F10E0C-3E1B-4939-BDE3-2FA5A7829614}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64F10E0C-3E1B-4939-BDE3-2FA5A7829614}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64F10E0C-3E1B-4939-BDE3-2FA5A7829614}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
