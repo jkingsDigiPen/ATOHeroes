@@ -1,8 +1,8 @@
 {
-    "name": "Hero_Template",
+    "name": "Maelfas, the Defiler",
     "version_number": "1.0.0",
-    "website_url": "https://github.com/thunderstore-io",
-    "description": "Simple templates for heroes.",
+    "website_url": "https://github.com/jkingsDigiPen/ATOHeroes/tree/main/Maelfas",
+    "description": "Warrior that can learn and craft healer cards.",
     "dependencies": [
         "meds-Obeliskial_Content-1.2.2"
     ]

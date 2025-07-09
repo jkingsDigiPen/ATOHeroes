@@ -1,0 +1,9 @@
+{
+    "name": "Gorio, the Shaman",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/jkingsDigiPen/ATOHeroes/tree/main/Gorio",
+    "description": "Healer that can learn and craft mage cards.",
+    "dependencies": [
+        "meds-Obeliskial_Content-1.2.2"
+    ]
+}
