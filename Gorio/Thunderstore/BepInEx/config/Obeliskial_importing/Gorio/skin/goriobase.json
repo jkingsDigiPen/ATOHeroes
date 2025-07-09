@@ -1,0 +1,15 @@
+﻿{
+  "BaseSkin": true,
+  "PerkLevel": 0,
+  "SkinGO": "skingorio",
+  "SkinID": "goriobase",
+  "SkinName": "Shaman",
+  "SkinOrder": 0,
+  "SkinSubclass": "shaman",
+  "Sku": "",
+  "SpritePortrait": "yoggerportraitPro",
+  "SpritePortraitGrande": "yoggerportraitGrandePro",
+  "SpriteSilueta": "yoggersiluetaPro",
+  "SpriteSiluetaGrande": "yoggersiluetaGrandePro",
+  "SteamStat": ""
+}

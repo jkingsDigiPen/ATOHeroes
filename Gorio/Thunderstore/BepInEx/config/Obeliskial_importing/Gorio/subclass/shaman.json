@@ -49,7 +49,7 @@
   "ResistShadow": 5,
   "ResistMind": 15,
   "Speed": 11,
-  "SpriteBorderLocked": "",
+  "SpriteBorderLocked": "yoggerBorderSmallBN",
   "StickerBase": "",
   "StickerAngry": "",
   "StickerIndifferent": "",
