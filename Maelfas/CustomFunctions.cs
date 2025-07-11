@@ -1,5 +1,5 @@
 ﻿// This code by BinBin
-// https://github.com/binbinmods/Rosalinde/blob/master/RosalindeTraits/CustomFunctions.cs
+// https://github.com/binbinmods/Obeliskial-Essentials/blob/master/HeroCreationFunctions.cs
 using System;
 using System.Collections.Generic;
 using System.Linq;

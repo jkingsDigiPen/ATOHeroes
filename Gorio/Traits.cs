@@ -14,7 +14,10 @@ namespace Gorio
     {
         // list of your trait IDs
         public static string[] myTraitList = 
-        { 
+        {
+            "shamanduality",
+            "shamanhoundmaster",
+            "shamanpackleader"
         };
 
         public static void myDoTrait(string _trait, ref Trait __instance)
@@ -43,15 +46,25 @@ namespace Gorio
             // activate traits
             if (_trait == myTraitList[0])
             {
-                
+                // When you play a Mage card, reduce the cost of the highest cost Healer card
+                // in your hand by 1 until discarded. When you play a Healer card, reduce the
+                // cost of the highest cost Mage card in your hand by 1 until discarded. (3 times/turn)
+                // (4x if you have ???)
+                int bonusActivations = _character.HaveTrait(myTraitList[3]) ? 1 : 0;
+                Duality(ref _character,ref _castedCard, Enums.CardClass.Healer, 
+                    Enums.CardClass.Mage, _trait, bonusActivations : bonusActivations);
             }
             else if(_trait == myTraitList[1])
             {
-                
+                // Upon picking up, if you have the "Hound" pet, replace it with the "Wolfy" pet.
+                //if(_character.Pet == "Hound")
+                    //_character.HeroItem.PetItem;
             }
             else if(_trait == myTraitList[2])
             {
-                
+                // Upon picking up, if you have the "Wolfy" pet, corrupt it.
+                //if(_character.Pet == "Wolfy")
+                    //_character.HeroItem.pet
             }
             else if(_trait == myTraitList[3])
             {

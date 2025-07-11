@@ -5,8 +5,6 @@ using System.Linq;
 using Obeliskial_Content;
 using static Maelfas.CustomFunctions;
 using static Maelfas.Plugin;
-using UnityEngine.TextCore.Text;
-using Paradox;
 
 namespace Maelfas
 {
@@ -67,7 +65,7 @@ namespace Maelfas
                 // Gain a percent bonus to damage and healing equal to the total number of
                 // curse stacks on this hero.
                 string[] curseOptions = { "poison", "burn", "dark" };
-                string curseChoice = curseOptions[UnityEngine.Random.Range(0, curseOptions.Length - 1)];
+                string curseChoice = curseOptions[SafeRandomInt(0, curseOptions.Length - 1)];
                 ApplyAuraCurseToTarget(curseChoice, 2, _character, _character, true);
 
                 // (Second part handled in GetTraitDamagePercentModifiersPostfix
