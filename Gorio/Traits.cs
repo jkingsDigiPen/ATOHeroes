@@ -16,7 +16,6 @@ namespace Gorio
         public static string[] myTraitList = 
         {
             "shamanduality",
-            "shamanhoundmaster",
             "shamanpackleader"
         };
 
@@ -56,15 +55,17 @@ namespace Gorio
             }
             else if(_trait == myTraitList[1])
             {
-                // Upon picking up, if you have the "Hound" pet, replace it with the "Wolfy" pet.
-                //if(_character.Pet == "Hound")
-                    //_character.HeroItem.PetItem;
+                // Upon picking up, if you have the "Astral Wolf" pet, corrupt it.
+                if(IfCharacterHas(_character, CharacterHas.Item, "shamanhound", AppliesTo.ThisHero)
+                    || IfCharacterHas(_character, CharacterHas.Item, "shamanhounda", AppliesTo.ThisHero)
+                    || IfCharacterHas(_character, CharacterHas.Item, "shamanhoundb", AppliesTo.ThisHero))
+                {
+                    //_character.HeroItem.pet
+                }
             }
             else if(_trait == myTraitList[2])
             {
-                // Upon picking up, if you have the "Wolfy" pet, corrupt it.
-                //if(_character.Pet == "Wolfy")
-                    //_character.HeroItem.pet
+                
             }
             else if(_trait == myTraitList[3])
             {
