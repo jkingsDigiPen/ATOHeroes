@@ -1,15 +1,15 @@
 {
-    "AdventureLevel": 0,
-    "BaseCardback": false,
-    "CardbackID": "maelfasRegularCardback",
-    "CardbackName": "Defiler",
-    "CardbackOrder": 1,
-    "CardbackSprite": "CartaMaelfas",
-    "CardbackSubclass": "defiler",
-    "Locked": false,
-    "ObeliskLevel": 0,
-    "RankLevel": 8,
-    "ShowIfLocked": false,
-    "Sku": "",
-    "SteamStat": ""
+  "AdventureLevel": 0,
+  "BaseCardback": false,
+  "CardbackID": "maelfasRegularCardback",
+  "CardbackName": "Defiler",
+  "CardbackOrder": 1,
+  "CardbackSprite": "CartaMaelfas",
+  "CardbackSubclass": "defiler",
+  "Locked": false,
+  "ObeliskLevel": 0,
+  "RankLevel": 8,
+  "ShowIfLocked": false,
+  "Sku": "",
+  "SteamStat": ""
 }
