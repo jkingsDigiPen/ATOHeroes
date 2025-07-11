@@ -7,9 +7,9 @@
   "SkinOrder": 0,
   "SkinSubclass": "shaman",
   "Sku": "",
-  "SpritePortrait": "yoggerportraitPro",
-  "SpritePortraitGrande": "yoggerportraitGrandePro",
-  "SpriteSilueta": "yoggersiluetaPro",
-  "SpriteSiluetaGrande": "yoggersiluetaGrandePro",
+  "SpritePortrait": "gorio1portrait",
+  "SpritePortraitGrande": "gorio1portraitGrande",
+  "SpriteSilueta": "gorio1Silueta",
+  "SpriteSiluetaGrande": "gorio1SiluetaGrande",
   "SteamStat": ""
 }

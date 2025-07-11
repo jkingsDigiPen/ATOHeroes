@@ -2,7 +2,7 @@
   "NewGameObjectID": "skingorio",
   "BaseGameObjectID": "gorio",
   "SpriteToUse": "",
-  "ScaleX": 1.0,
-  "ScaleY": 1.0,
+  "ScaleX": 0.8,
+  "ScaleY": 0.8,
   "Flip": true
 }
