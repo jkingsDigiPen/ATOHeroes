@@ -2,9 +2,9 @@
   "ActionSound": "",
   "AutoUnlock": true,
   "Cards": [
-    "{\n    \"UnitsInDeck\": 4,\n    \"Card\": \"healingtotemh\"\n}",
-    "{\n    \"UnitsInDeck\": 3,\n    \"Card\": \"crashlightningh\"\n}",
+    "{\n    \"UnitsInDeck\": 4,\n    \"Card\": \"crashlightningh\"\n}",
     "{\n    \"UnitsInDeck\": 3,\n    \"Card\": \"innervate\"\n}",
+    "{\n    \"UnitsInDeck\": 3,\n    \"Card\": \"healingtotemh\"\n}",
     "{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"dispelmagic\"\n}",
     "{\n    \"UnitsInDeck\": 1,\n    \"Card\": \"prescription\"\n}",
     "{\n    \"UnitsInDeck\": 1,\n    \"Card\": \"meditate\"\n}",
@@ -67,5 +67,20 @@
   "Trait4A": "glasscannon",
   "Trait4B": "elementalweaver",
   "CardsSingularity": [
+    "coldsparkstart",
+    "healingtotem",
+    "innervate",
+    "crashlightning",
+    "prescription",
+    "dispelmagic",
+    "meditate",
+    "flare",
+    "icicle",
+    "zap",
+    "manashield",
+    "prismaticfield",
+    "geyser",
+    "curseofelements",
+    "frostnova"
   ]
 }
