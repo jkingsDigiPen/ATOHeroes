@@ -27,7 +27,7 @@
     "FluffOffsetY": 3.4000000953674318,
     "HeroClass": "Scout",
     "HeroClassSecondary": "Mage",
-    "HitSound": "femalehit1",
+    "HitSound": "vx_pc_malukah_hurt_01",
     "HP": 66,
     "ID": "siren",
     "Item": "sirenluringlyre",

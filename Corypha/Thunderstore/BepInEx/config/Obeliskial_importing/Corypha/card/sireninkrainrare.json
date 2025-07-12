@@ -17,9 +17,8 @@
     "UpgradesTo2": "",
     "UpgradesToRare": "",
     "CardClass": "Mage",
-    "CardType": "Shadow_Spell",
+    "CardType": "Skill",
     "CardTypeAux": [
-        "Spell"
     ],
     "CardName": "Ink Rain",
     "CardRarity": "Uncommon",
