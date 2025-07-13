@@ -152,7 +152,7 @@
   "AddCardFrom": "Deck",
   "AddCardId": "",
   "AddCardList": [],
-  "AddCardPlace": "Discard",
+  "AddCardPlace": "Hand",
   "AddCardType": "None",
   "AddCardTypeAux": [],
   "AddCardVanish": false,
