@@ -18,8 +18,13 @@ namespace Gorio
             "shamanduality",
             "shamanpackleader",
             "shamanstarryform",
-            "shamanmeteorology"
+            "shamanmeteorology",
+            "shamanmoonphase"
         };
+
+        public static bool isDamagePreviewActive = false;
+
+        public static bool isCalculateDamageActive = false;
 
         public static void myDoTrait(string _trait, ref Trait __instance)
         {
@@ -88,7 +93,9 @@ namespace Gorio
             }
             else if(_trait == myTraitList[4])
             {
-                
+                // On odd-numbered rounds, gain a 20% bonus to all damage.
+                // On even-numbered rounds, gain a 30% bonus to all healing done and a 15% bonus to healing received.
+                // (Handled in GetTraitPercentBonusPostfix methods below)
             }
             else return;
 
@@ -114,6 +121,104 @@ namespace Gorio
                 return false;
             }
             return true;
+        }
+
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(Character), nameof(Character.GetTraitDamagePercentModifiers))]
+        public static void GetTraitDamagePercentModifiersPostfix(ref Character __instance, ref float __result, Enums.DamageType DamageType)
+        {
+            //LogDebug("GetTraitDamagePercentModifiersPostfix");
+
+            if (isDamagePreviewActive || isCalculateDamageActive)
+                return;
+
+            if (IsLivingHero(__instance) && AtOManager.Instance != null 
+                && AtOManager.Instance.CharacterHaveTrait(__instance.SubclassName, myTraitList[4]) 
+                && MatchManager.Instance != null)
+            {
+                LogDebug("GetTraitDamagePercentModifiersPostfix - post conditional");
+
+                // On odd-numbered rounds, gain a 20% bonus to all damage.
+                // On even-numbered rounds, gain a 30% bonus to all healing done and a 15% bonus to healing received.
+                int percentIncrease = MatchManager.Instance.GetCurrentRound() % 2 == 0 ? 0 : 20;
+
+                LogInfo("GetTraitDamagePercentModifiers = " + percentIncrease);
+                __result += percentIncrease;
+            }
+        }
+
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(Character), nameof(Character.GetTraitHealPercentBonus))]
+        public static void GetTraitHealPercentBonusPostfix(ref Character __instance, ref float __result)
+        {
+            //LogDebug("GetTraitHealPercentBonusPostfix");
+
+            if (isDamagePreviewActive || isCalculateDamageActive)
+                return;
+
+            if (IsLivingHero(__instance) && AtOManager.Instance != null 
+                && AtOManager.Instance.CharacterHaveTrait(__instance.SubclassName, myTraitList[4]) 
+                && MatchManager.Instance != null)
+            {
+                LogDebug("GetTraitHealPercentBonusPostfix - post conditional");
+
+                // On odd-numbered rounds, gain a 20% bonus to all damage.
+                // On even-numbered rounds, gain a 30% bonus to all healing done and a 15% bonus to healing received.
+                int percentIncrease = MatchManager.Instance.GetCurrentRound() % 2 == 0 ? 30 : 0;
+
+                LogDebug("GetTraitHealPercentBonus = " + percentIncrease);
+                __result += percentIncrease;
+            }
+        }
+
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(Character), nameof(Character.GetTraitHealReceivedPercentBonus))]
+        public static void GetTraitHealReceivedPercentBonusPostfix(ref Character __instance, ref float __result)
+        {
+            //LogDebug("GetTraitHealReceivedPercentBonusPostfix");
+
+            if (isDamagePreviewActive || isCalculateDamageActive)
+                return;
+
+            if (IsLivingHero(__instance) && AtOManager.Instance != null 
+                && AtOManager.Instance.CharacterHaveTrait(__instance.SubclassName, myTraitList[4]) 
+                && MatchManager.Instance != null)
+            {
+                LogDebug("GetTraitHealReceivedPercentBonusPostfix - post conditional");
+
+                // On odd-numbered turns, gain a 20% bonus to all damage.
+                // On even-numbered turns, gain a 30% bonus to all healing done and a 15% bonus to healing received.
+                int percentIncrease = MatchManager.Instance.GetCurrentRound() % 2 == 0 ? 15 : 0;
+
+                LogDebug("GetTraitHealReceivedPercentBonus = " + percentIncrease);
+                __result += percentIncrease;
+            }
+        }
+
+        [HarmonyPrefix]
+        [HarmonyPatch(typeof(MatchManager), nameof(MatchManager.SetDamagePreview))]
+        public static void SetDamagePreviewPrefix()
+        {
+            isDamagePreviewActive = true;
+        }
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(MatchManager), nameof(MatchManager.SetDamagePreview))]
+        public static void SetDamagePreviewPostfix()
+        {
+            isDamagePreviewActive = false;
+        }
+
+        [HarmonyPrefix]
+        [HarmonyPatch(typeof(CharacterItem), nameof(CharacterItem.CalculateDamagePrePostForThisCharacter))]
+        public static void CalculateDamagePrePostForThisCharacterPrefix()
+        {
+            isCalculateDamageActive = true;
+        }
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(CharacterItem), nameof(CharacterItem.CalculateDamagePrePostForThisCharacter))]
+        public static void CalculateDamagePrePostForThisCharacterPostfix()
+        {
+            isCalculateDamageActive = false;
         }
     }
 }
