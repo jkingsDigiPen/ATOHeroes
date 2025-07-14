@@ -175,7 +175,7 @@
     "IsPetCast": false,
     "Lazy": false,
     "ModifiedByTrait": false,
-    "MoveToCenter": true,
+    "MoveToCenter": false,
     "PetFront": true,
     "PetInvert": true,
     "PetModel": "",
