@@ -2,12 +2,12 @@
   "ActionSound": "",
   "AutoUnlock": true,
   "Cards": [
-    "{\n    \"UnitsInDeck\": 4,\n    \"Card\": \"zap\"\n}",
+    "{\n    \"UnitsInDeck\": 3,\n    \"Card\": \"shamancrashlightning\"\n}",
     "{\n    \"UnitsInDeck\": 3,\n    \"Card\": \"innervate\"\n}",
-    "{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"dispelmagic\"\n}",
-    "{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"shamanfrostrune\"\n}",
+    "{\n    \"UnitsInDeck\": 3,\n    \"Card\": \"shamanfrostrune\"\n}",
+    "{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"healingrain\"\n}",
     "{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"shamanthunderrune\"\n}",
-    "{\n    \"UnitsInDeck\": 1,\n    \"Card\": \"meditate\"\n}",
+    "{\n    \"UnitsInDeck\": 1,\n    \"Card\": \"shamanpurgingwinds\"\n}",
     "{\n    \"UnitsInDeck\": 1,\n    \"Card\": \"shamanhealingtotem\"\n}"
   ],
   "ChallengePack0": "cryomancer",
@@ -70,9 +70,9 @@
     "shamanthunderrune",
     "shamanhealingtotem",
     "innervate",
-    "crashlightning",
+    "shamancrashlightning",
     "prescription",
-    "dispelmagic",
+    "shamanpurgingwinds",
     "meditate",
     "shamanfrostrune",
     "icicle",
@@ -80,7 +80,7 @@
     "manashield",
     "prismaticfield",
     "geyser",
-    "curseofelements",
+    "chainheal",
     "frostnova"
   ]
 }
