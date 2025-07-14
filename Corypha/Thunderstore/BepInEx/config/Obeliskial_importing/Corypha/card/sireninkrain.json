@@ -17,9 +17,11 @@
   "UpgradesTo2": "sireninkrainb",
   "UpgradesToRare": "sireninkrainrare",
   "CardClass": "Mage",
-  "CardType": "Skill",
-  "CardTypeAux": [
-  ],
+  "CardType": "Shadow_Spell",
+	"CardTypeAux": [
+			"Cold_Spell",
+			"Spell"
+	],
   "CardName": "Ink Rain",
   "CardRarity": "Uncommon",
   "Curse": "dark",
