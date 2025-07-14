@@ -45,7 +45,7 @@
     "DiscardCardType": "None",
     "DiscardCardTypeAux": [],
     "DispelAuras": 1,
-    "DrawCard": 1,
+    "DrawCard": 0,
     "EffectCastCenter": false,
     "EffectCaster": "dryadcast1",
     "EffectCasterRepeat": false,

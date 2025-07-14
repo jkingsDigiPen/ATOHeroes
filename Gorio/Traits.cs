@@ -16,7 +16,9 @@ namespace Gorio
         public static string[] myTraitList = 
         {
             "shamanduality",
-            "shamanpackleader"
+            "shamanpackleader",
+            "shamanstarryform",
+            "shamanmeteorology"
         };
 
         public static void myDoTrait(string _trait, ref Trait __instance)
@@ -48,28 +50,41 @@ namespace Gorio
                 // When you play a Mage card, reduce the cost of the highest cost Healer card
                 // in your hand by 1 until discarded. When you play a Healer card, reduce the
                 // cost of the highest cost Mage card in your hand by 1 until discarded. (3 times/turn)
-                // (4x if you have ???)
-                int bonusActivations = _character.HaveTrait(myTraitList[3]) ? 1 : 0;
+                // (4x if you have starry form)
+                int bonusActivations = _character.HaveTrait(myTraitList[2]) ? 1 : 0;
                 Duality(ref _character,ref _castedCard, Enums.CardClass.Healer, 
                     Enums.CardClass.Mage, _trait, bonusActivations : bonusActivations);
             }
             else if(_trait == myTraitList[1])
             {
+                // Block +1, Shield +1, Powerful +1
+                // At the start of your turn, all heroes gain 1 fast.
+                ApplyAuraCurseToAll("fast", 1, AppliesTo.Heroes, _character);
+
                 // Upon picking up, if you have the "Astral Wolf" pet, corrupt it.
-                if(IfCharacterHas(_character, CharacterHas.Item, "shamanhound", AppliesTo.ThisHero)
-                    || IfCharacterHas(_character, CharacterHas.Item, "shamanhounda", AppliesTo.ThisHero)
-                    || IfCharacterHas(_character, CharacterHas.Item, "shamanhoundb", AppliesTo.ThisHero))
+                if(_character.Cards.Remove("shamanhound") 
+                    || _character.Cards.Remove("shamanhounda") 
+                    || _character.Cards.Remove("shamanhoundb"))
                 {
-                    //_character.HeroItem.pet
+                    _character.Cards.Add("shamanhoundrare");
                 }
             }
             else if(_trait == myTraitList[2])
             {
-                
+                // Bless +1, Sanctify +1, Regeneration +1.
+                // At the start of your turn, all heroes gain 1 evasion.
+                // Mage duality can be activated 4 times/turn.
+                ApplyAuraCurseToAll("evasion", 1, AppliesTo.Heroes, _character);
             }
             else if(_trait == myTraitList[3])
             {
-                
+                // When you apply Spark, Chill, or Burn charges,
+                // a random hero gains Shield charges equal to that amount.
+                // -This amount does not gain bonuses-
+                if(!(_auxString == "burn" || _auxString == "chill" || _auxString == "spark"))
+                    return;
+
+                ApplyAuraCurseToTarget("shield", _auxInt, GetRandomCharacter(teamHero), _character, false);
             }
             else if(_trait == myTraitList[4])
             {
