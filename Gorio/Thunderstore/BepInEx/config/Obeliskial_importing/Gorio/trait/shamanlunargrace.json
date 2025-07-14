@@ -28,7 +28,7 @@
     "HealPercentBonus": 0.0,
     "HealReceivedFlatBonus": 0,
     "HealReceivedPercentBonus": 0.0,
-    "ID": "shamanstarrynight",
+    "ID": "shamanlunargrace",
     "ResistModified1": "None",
     "ResistModified2": "None",
     "ResistModified3": "None",
@@ -37,7 +37,7 @@
     "ResistModifiedValue3": 0,
     "TimesPerRound": 0,
     "TimesPerTurn": 0,
-    "TraitCard": "shamanstarrynight",
+    "TraitCard": "shamanlunargrace",
     "TraitCardForAllHeroes": "",
-    "TraitName": "Starry Night"
+    "TraitName": "Lunar Grace"
 }
