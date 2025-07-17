@@ -1,0 +1,9 @@
+{
+    "name": "Corypha, the Siren",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/jkingsDigiPen/ATOHeroes/tree/main/Corypha",
+    "description": "Scout that can learn and craft mage cards.",
+    "dependencies": [
+        "meds-Obeliskial_Content-1.2.2"
+    ]
+}
