@@ -1,0 +1,15 @@
+{
+  "BaseSkin": true,
+  "PerkLevel": 0,
+  "SkinGO": "skinmesmer",
+  "SkinID": "mesmerbase",
+  "SkinName": "Illusionist",
+  "SkinOrder": 0,
+  "SkinSubclass": "illusionist",
+  "Sku": "",
+  "SpritePortrait": "mesmer1Portrait",
+  "SpritePortraitGrande": "mesmer1PortraitGrande",
+  "SpriteSilueta": "ameliasilueta",
+  "SpriteSiluetaGrande": "ameliasiluetaGrande",
+  "SteamStat": ""
+}
