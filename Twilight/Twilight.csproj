@@ -13,12 +13,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Thunderstore\**" />
-    <EmbeddedResource Remove="Thunderstore\**" />
-    <None Remove="Thunderstore\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="BepInEx.Analyzers" Version="1.0.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
