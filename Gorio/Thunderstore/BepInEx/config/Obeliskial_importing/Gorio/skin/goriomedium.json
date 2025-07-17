@@ -1,0 +1,15 @@
+﻿{
+  "BaseSkin": false,
+  "PerkLevel": 16,
+  "SkinGO": "skingoriostormbringer",
+  "SkinID": "goriomedium",
+  "SkinName": "Storm Bringer",
+  "SkinOrder": 1,
+  "SkinSubclass": "shaman",
+  "Sku": "",
+  "SpritePortrait": "gorio2portrait",
+  "SpritePortraitGrande": "gorio2portraitGrande",
+  "SpriteSilueta": "gorio2Silueta",
+  "SpriteSiluetaGrande": "gorio2SiluetaGrande",
+  "SteamStat": ""
+}

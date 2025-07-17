@@ -1,0 +1,8 @@
+﻿{
+  "NewGameObjectID": "skingoriomooncaller",
+  "BaseGameObjectID": "gorio",
+  "SpriteToUse": "gorio3Sprite",
+  "ScaleX": 0.8,
+  "ScaleY": 0.8,
+  "Flip": true
+}

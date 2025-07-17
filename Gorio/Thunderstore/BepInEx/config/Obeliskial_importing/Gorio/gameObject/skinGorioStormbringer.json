@@ -1,0 +1,8 @@
+﻿{
+  "NewGameObjectID": "skingoriostormbringer",
+  "BaseGameObjectID": "gorio",
+  "SpriteToUse": "gorio2Sprite",
+  "ScaleX": 0.8,
+  "ScaleY": 0.8,
+  "Flip": true
+}

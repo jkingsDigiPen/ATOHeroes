@@ -1,0 +1,15 @@
+﻿{
+  "BaseSkin": false,
+  "PerkLevel": 32,
+  "SkinGO": "skingoriomooncaller",
+  "SkinID": "goriopro",
+  "SkinName": "Moon Caller",
+  "SkinOrder": 2,
+  "SkinSubclass": "shaman",
+  "Sku": "",
+  "SpritePortrait": "gorio3portrait",
+  "SpritePortraitGrande": "gorio3portraitGrande",
+  "SpriteSilueta": "gorio3Silueta",
+  "SpriteSiluetaGrande": "gorio3SiluetaGrande",
+  "SteamStat": ""
+}
