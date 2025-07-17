@@ -1,0 +1,15 @@
+{
+    "Card0": "shamancrashlightning",
+    "Card1": "shamanthunderrune",
+    "Card2": "shamanfrostrune",
+    "Card3": "shamanpurgingwinds",
+    "Card4": "shamanhealingtotem",
+    "Card5": "",
+    "CardSpecial0": "",
+    "CardSpecial1": "",
+    "PackClass": "Mage",
+    "PackID": "gorio",
+    "PackName": "Gorio",
+    "PerkList": [],
+    "RequiredClass": "shaman"
+}
