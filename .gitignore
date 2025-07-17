@@ -419,5 +419,8 @@ FodyWeavers.xsd
 
 # Dynamic Libraries
 *.dll
+
+# Misc
 /jbk_ato_mods.zip
 /WorkFolder
+/notes.txt

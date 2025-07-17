@@ -1,5 +1,0 @@
-COUNTERSPELL
-ANTIMAGIC FIELD
-DAMPEN MAGIC
-
-Mesmer is next, not dualist
