@@ -133,6 +133,7 @@ namespace Gorio
             {
                 __instance.Pet = "shamanhoundrare";
             }
+            __result = true;
         }
 
         [HarmonyPostfix]
