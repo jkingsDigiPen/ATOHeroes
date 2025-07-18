@@ -65,14 +65,6 @@ namespace Gorio
                 // Block +1, Shield +1, Powerful +1
                 // At the start of your turn, all heroes gain 1 fast.
                 ApplyAuraCurseToAll("fast", 1, AppliesTo.Heroes, _character);
-
-                // Upon picking up, if you have the "Astral Wolf" pet, corrupt it.
-                if(_character.Cards.Remove("shamanhound") 
-                    || _character.Cards.Remove("shamanhounda") 
-                    || _character.Cards.Remove("shamanhoundb"))
-                {
-                    _character.Cards.Add("shamanhoundrare");
-                }
             }
             else if(_trait == myTraitList[2])
             {
@@ -121,6 +113,26 @@ namespace Gorio
                 return false;
             }
             return true;
+        }
+
+        [HarmonyPostfix]
+        [HarmonyPatch(typeof(Hero), nameof(Hero.AssignTrait))]
+        public static void AssignTraitPostfix(ref Hero __instance, ref bool __result, string traitName)
+        {
+            TraitData traitData = Globals.Instance.GetTraitData(traitName);
+            if (traitData == null)
+            {
+                __result = false;
+                return;
+            }
+
+            // Block +1, Shield +1, Powerful +1
+            // At the start of your turn, all heroes gain 1 fast.
+            // Upon picking up, if you have the "Astral Wolf" pet, corrupt it.
+            if (traitData.Id == myTraitList[1] && __instance.Pet.StartsWith("shamanhound", StringComparison.OrdinalIgnoreCase))
+            {
+                __instance.Pet = "shamanhoundrare";
+            }
         }
 
         [HarmonyPostfix]
