@@ -29,7 +29,7 @@
   "HeroClassSecondary": "None",
   "HitSound": "",
   "HP": 70,
-  "ID": "illusionist",
+  "ID": "phantom",
   "Item": "cocoonpet",
   "MaxHP": [
     0,
@@ -56,7 +56,7 @@
   "StickerLove": "",
   "StickerSurprise": "",
   "StickerOffsetX": 0.10000000149011612,
-  "SubclassName": "Illusionist",
+  "SubclassName": "Phantom",
   "Trait0": "eldritch",
   "Trait1A": "arcanereflux",
   "Trait1B": "unwaveringfaith",
