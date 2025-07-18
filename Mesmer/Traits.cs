@@ -67,7 +67,7 @@ namespace Mesmer
             }
             else*/ return;
 
-            LogDebug($"Trait {_trait}");
+            //LogDebug($"Trait {_trait}");
         }
 
         [HarmonyPrefix]

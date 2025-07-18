@@ -22,7 +22,7 @@ namespace Mesmer
         public static string characterName = "Mesmer";
         public static string heroName = characterName;
 
-        public static string subclassName = "Illusionist"; // needs caps
+        public static string subclassName = "Phantom"; // needs caps
 
         public static string subclassname = subclassName.ToLower();
         public static string itemStem = subclassname;
