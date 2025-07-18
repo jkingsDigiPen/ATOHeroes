@@ -200,39 +200,7 @@ namespace Maelfas
         public static void GetTraitDamagePercentModifiersPostfix(ref Character __instance, ref float __result, Enums.DamageType DamageType)
         {
             //LogDebug("GetTraitDamagePercentModifiersPostfix");
-
-            if (isDamagePreviewActive || isCalculateDamageActive)
-                return;
-
-            if (IsLivingHero(__instance) && AtOManager.Instance != null 
-                && AtOManager.Instance.CharacterHaveTrait(__instance.SubclassName, myTraitList[1]) 
-                && MatchManager.Instance != null)
-            {
-                LogDebug("GetTraitDamagePercentModifiersPostfix - post conditional");
-                if (__instance.GetCurseList() == null)
-                {
-                    LogDebug("Empty CurseList");
-                    return;
-                }
-
-                // You gain a percent bonus to all damage and healing based on the amount of curse
-                // charges you have: 6% for each unique curse, plus an addition 6% for every 6 charges
-                // you have of each of those curses.
-                int percentIncrease = 0;
-                for(int i = 0; i < __instance.AuraList.Count; i++)
-                {
-                    if(__instance.AuraList[i] == null) continue;
-
-                    Aura aura = __instance.AuraList[i];
-
-                    if(aura.ACData.IsAura) continue;
-
-                    percentIncrease += 6 * (aura.GetCharges() / 6 + 1);
-                }
-
-                LogInfo("GetTraitDamagePercentModifiers - percent from curse charges = " + percentIncrease);
-                __result += percentIncrease;
-            }
+            GetMaelfasTraitPercentBonus(ref __instance, ref __result);
         }
 
         [HarmonyPostfix]
@@ -240,7 +208,19 @@ namespace Maelfas
         public static void GetTraitHealPercentBonusPostfix(ref Character __instance, ref float __result)
         {
             //LogDebug("GetTraitHealPercentBonusPostfix");
+            GetMaelfasTraitPercentBonus(ref __instance, ref __result);
+        }
 
+        [HarmonyPrefix]
+        [HarmonyPatch(typeof(Character), nameof(Character.GetTraitHealReceivedPercentBonus))]
+        public static void GetTraitHealReceivedPercentBonusPostfix(ref Character __instance, ref float __result)
+        {
+            //LogDebug("GetTraitHealReceivedPercentBonusPostfix");
+            GetMaelfasTraitPercentBonus(ref __instance, ref __result);
+        }
+
+        private static void GetMaelfasTraitPercentBonus(ref Character __instance, ref float __result)
+        {
             if (isDamagePreviewActive || isCalculateDamageActive)
                 return;
 
@@ -248,7 +228,7 @@ namespace Maelfas
                 && AtOManager.Instance.CharacterHaveTrait(__instance.SubclassName, myTraitList[1]) 
                 && MatchManager.Instance != null)
             {
-                LogDebug("GetTraitHealPercentBonusPostfix - post conditional");
+                LogDebug("GetTraitPercentBonus - post conditional");
                 if (__instance.GetCurseList() == null)
                 {
                     LogDebug("Empty CurseList");
@@ -270,7 +250,7 @@ namespace Maelfas
                     percentIncrease += 6 * (aura.GetCharges() / 6 + 1);
                 }
 
-                LogDebug("GetTraitHealPercentBonus - curseStacks = " + percentIncrease);
+                LogDebug("GetTraitPercentBonus - curseStacks = " + percentIncrease);
                 __result += percentIncrease;
             }
         }

@@ -23,7 +23,7 @@
     "DamageBonusPercentValue": 0.0,
     "DamageBonusPercentValue2": 0.0,
     "DamageBonusPercentValue3": 0.0,
-    "Description": "At the start of your turn, suffer 2 charges of either Poison, Burn, or Dark, chosen randomly. You gain a percent bonus to all damage and healing based on the amount of curse charges you have: 6% for each unique curse, plus an addition 6% for every 6 charges you have of each of those curses.",
+    "Description": "At the start of your turn, suffer 2 charges of either Poison, Burn, or Dark, chosen randomly. You gain a percent bonus to all damage and all healing done and received based on the amount of curse charges you have: 6% for each unique curse, plus an addition 6% for every 6 charges you have of each of those curses.",
     "HealFlatBonus": 0,
     "HealPercentBonus": 0.0,
     "HealReceivedFlatBonus": 0,
