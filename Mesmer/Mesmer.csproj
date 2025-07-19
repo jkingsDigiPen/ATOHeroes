@@ -53,10 +53,6 @@
     </EmbeddedResource>
   </ItemGroup>
   
-  <ItemGroup>
-    <Folder Include="Thunderstore\BepInEx\config\Obeliskial_importing\Mesmer\card\" />
-  </ItemGroup>
-  
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="xcopy /i /y $(OutDir)$(AssemblyName).dll Thunderstore\BepInEx\plugins\" />
   </Target>

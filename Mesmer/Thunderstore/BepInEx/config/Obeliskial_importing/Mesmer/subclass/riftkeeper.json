@@ -8,7 +8,7 @@
     "{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"dispelmagic\"\n}",
     "{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"fade\"\n}",
     "{\n    \"UnitsInDeck\": 1,\n    \"Card\": \"twilightswamp\"\n}",
-    "{\n    \"UnitsInDeck\": 1,\n    \"Card\": \"banishstart\"\n}"
+    "{\n    \"UnitsInDeck\": 1,\n    \"Card\": \"keeperdimensionalshift\"\n}"
   ],
   "ChallengePack0": "mentalist",
   "ChallengePack1": "seer",
@@ -18,7 +18,7 @@
   "ChallengePack5": "shaman",
   "ChallengePack6": "zealot",
   "CharacterDescription": "Description TBD",
-  "CharacterDescriptionStrength": "Healer specializing in...",
+  "CharacterDescriptionStrength": "Healer specializing in speed manipulation and removing auras and curses.",
   "CharacterName": "Mesmer",
   "Energy": 1,
   "EnergyTurn": 3,
@@ -29,8 +29,8 @@
   "HeroClassSecondary": "None",
   "HitSound": "",
   "HP": 70,
-  "ID": "phantom",
-  "Item": "cocoonpet",
+  "ID": "riftkeeper",
+  "Item": "keepernetherorb",
   "MaxHP": [
     0,
     5,
@@ -56,7 +56,7 @@
   "StickerLove": "",
   "StickerSurprise": "",
   "StickerOffsetX": 0.10000000149011612,
-  "SubclassName": "Phantom",
+  "SubclassName": "Riftkeeper",
   "Trait0": "eldritch",
   "Trait1A": "arcanereflux",
   "Trait1B": "unwaveringfaith",
@@ -67,7 +67,7 @@
   "Trait4A": "timeparadox",
   "Trait4B": "mojo",
   "CardsSingularity": [
-    "banishstart",
+    "keeperdimensionalshift",
     "mindblast",
     "mentalshake",
     "scry",
