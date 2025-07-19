@@ -1,11 +1,12 @@
 ﻿using HarmonyLib;
+using Obeliskial_Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Obeliskial_Content;
+using UnityEngine;
+using UnityEngine.TextCore.Text;
 using static Mesmer.CustomFunctions;
 using static Mesmer.Plugin;
-using UnityEngine;
 
 namespace Mesmer
 {
@@ -15,6 +16,10 @@ namespace Mesmer
         // list of your trait IDs
         public static string[] myTraitList = 
         {
+            "keeperaccelerate",
+            "keeperrestart",
+            "keeperinstability",
+            "keepertimelord"
         };
 
         public static bool isDamagePreviewActive = false;
@@ -45,29 +50,57 @@ namespace Mesmer
             if (!IsLivingHero(_character)) return;
 
             // activate traits
-            /*if (_trait == myTraitList[0])
+            if (_trait == myTraitList[0])
             {
-                
+                // At the start of combat, shuffle 1 Accelerate card into each hero deck.
+                string cardID = myTraitList[0];
+                for (int i = 0; i < teamHero.Length; i++)
+                {
+                    if (_character.HaveTrait(myTraitList[1]))
+                    {
+                        cardID = ((!_character.HaveTrait(myTraitList[3])) ? myTraitList[1] : myTraitList[1] + "rare");
+                        break;
+                    }
+
+                    if (_character.HaveTrait(myTraitList[2]))
+                    {
+                        cardID = ((!_character.HaveTrait(myTraitList[3])) ? myTraitList[2] : myTraitList[2] + "rare");
+                        break;
+                    }
+                }
+
+                for (int j = 0; j < teamHero.Length; j++)
+                {
+                    if (teamHero[j] != null && teamHero[j].HeroData != null && teamHero[j].Alive)
+                    {
+                        string text = MatchManager.Instance.CreateCardInDictionary(cardID);
+                        MatchManager.Instance.GetCardData(text);
+                        MatchManager.Instance.GenerateNewCard(1, text, createCard: false, Enums.CardPlace.RandomDeck, null, null, teamHero[j].HeroIndex);
+                    }
+                }
+
+                _character.HeroItem.ScrollCombatText("Chronomancer", Enums.CombatScrollEffectType.Trait);
+                MatchManager.Instance.ItemTraitActivated();
             }
             else if(_trait == myTraitList[1])
             {
-               
+               // Replace the Accelerate cards of Chronomancer for Eldritch Restart cards. (handled above)
             }
             else if(_trait == myTraitList[2])
             {
-                
+                // Replace the Accelerate cards of Chronomancer for Instability cards. (handled above)
             }
             else if(_trait == myTraitList[3])
             {
-                
+                 // Upgrade Eldritch Restart cards and Instability cards into their corrupted versions. (handled above)
             }
             else if(_trait == myTraitList[4])
             {
                 
             }
-            else*/ return;
+            else return;
 
-            //LogDebug($"Trait {_trait}");
+            LogDebug($"Trait {_trait}");
         }
 
         [HarmonyPrefix]
