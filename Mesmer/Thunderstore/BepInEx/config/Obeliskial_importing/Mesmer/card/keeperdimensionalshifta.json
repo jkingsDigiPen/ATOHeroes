@@ -200,7 +200,7 @@
     "EnergyReductionToZeroPermanent": false,
     "EnergyReductionToZeroTemporal": false,
     "ExhaustCounter": 0,
-    "FlipSprite": true,
+    "FlipSprite": false,
     "Fluff": "",
     "FluffPercent": 0,
     "KillPet": false,
