@@ -54,7 +54,7 @@ namespace Mesmer
             if (_trait == myTraitList[0])
             {
                 // At the start of combat, shuffle 1 Accelerate card into each hero deck.
-                string cardID = myTraitList[0];
+                string cardID = _trait;
                 for (int i = 0; i < teamHero.Length; i++)
                 {
                     if (_character.HaveTrait(myTraitList[1]))
@@ -80,12 +80,12 @@ namespace Mesmer
                     }
                 }
 
-                _character.HeroItem.ScrollCombatText("Chronomancer", Enums.CombatScrollEffectType.Trait);
+                _character.HeroItem.ScrollCombatText("traits_" + _trait, Enums.CombatScrollEffectType.Trait);
                 MatchManager.Instance.ItemTraitActivated();
             }
             else if(_trait == myTraitList[1])
             {
-                if(!CanIncrementTraitActivations(myTraitList[1]))
+                if(!CanIncrementTraitActivations(_trait))
                     return;
 
                 if(_castedCard.CardType != Enums.CardType.Defense)
@@ -93,16 +93,16 @@ namespace Mesmer
 
                 // Replace the Accelerate cards of Chronomancer for Eldritch Restart cards. (handled above)
                 // When you play a "Defense" card that costs Energy, refund 1 Energy and gain 1 Regeneration. (3 times/turn)
-                WhenYouPlayXGainY(Enums.CardType.Defense, "regeneration", 1, _castedCard, ref _character, myTraitList[1]);
-                _character.ModifyEnergy(1);
-
-                IncrementTraitActivations(myTraitList[1]);
+                IncrementTraitActivations(_trait);
+                WhenYouPlayXGainY(Enums.CardType.Defense, "regeneration", 1, _castedCard, ref _character, _trait);
+                _character.ModifyEnergy(1, showScrollCombatText: true);
+                EffectsManager.Instance.PlayEffectAC("energy", isHero: true, _character.HeroItem.CharImageT, flip: false);
             }
             else if(_trait == myTraitList[2])
             {
                 // Replace the Accelerate cards of Chronomancer for Instability cards. (handled above)
                 // At the start of your turn, reduce the cost of the "Mind Spell" cards in your hand by 1 until they are discarded.
-                ReduceCardTypeCostUntilDiscarded(Enums.CardType.Mind_Spell, 1, ref _character, ref heroHand, ref cardDataList, myTraitList[2]);
+                ReduceCardTypeCostUntilDiscarded(Enums.CardType.Mind_Spell, 1, ref _character, ref heroHand, ref cardDataList, _trait);
             }
             else if(_trait == myTraitList[3])
             {
@@ -112,8 +112,37 @@ namespace Mesmer
                     return;
 
                 List<string> vanished = MatchManager.Instance.GetHeroVanish(_character.HeroIndex);
+                Dictionary<int, string> validVanished = new Dictionary<int, string>();
 
-                //MatchManager.Instance.vanish
+                for(int i = 0; i < vanished.Count; i++)
+                {
+                    CardData cardData = MatchManager.Instance.GetCardData(vanished[i]);
+                    if(cardData.CardClass == Enums.CardClass.Healer)
+                        validVanished.Add(i, vanished[i]);
+                }
+
+                if(validVanished.Count < 1) return;
+
+                int randomIndexValid = SafeRandomInt(0, validVanished.Count);
+                int j = 0;
+                int randomIndexVanished = 0;
+                foreach(KeyValuePair<int, string> keyValuePair in validVanished)
+                {
+                    if(j == randomIndexValid)
+                    {
+                        randomIndexVanished = keyValuePair.Key;
+                        break;
+                    }
+                    j++;
+                }
+
+                // Okay, now what?
+                int randomIndexDeck = SafeRandomInt(0, MatchManager.Instance.CountHeroDeck());
+                MatchManager.Instance.GetHeroDeck(_character.HeroIndex)[_character.HeroIndex].Insert(randomIndexDeck, validVanished[randomIndexVanished]);
+                MatchManager.Instance.GetHeroVanish(_character.HeroIndex).RemoveAt(randomIndexVanished);
+                //MatchManager.Instance.DrawDeckPile(MatchManager.Instance.CountHeroDeck() + 1);
+                _character.HeroItem.ScrollCombatText("traits_" + _trait, Enums.CombatScrollEffectType.Trait);
+                MatchManager.Instance.ItemTraitActivated();
             }
             else if(_trait == myTraitList[4])
             {
@@ -121,8 +150,8 @@ namespace Mesmer
                 if(_castedCard.CardType != Enums.CardType.Skill)
                     return;
 
-                WhenYouPlayXGainY(Enums.CardType.Skill, "inspire", 1, _castedCard, ref _character, myTraitList[4]);
-                WhenYouPlayXGainY(Enums.CardType.Skill, "stealth", 1, _castedCard, ref _character, myTraitList[4]);
+                WhenYouPlayXGainY(Enums.CardType.Skill, "inspire", 1, _castedCard, ref _character, _trait);
+                WhenYouPlayXGainY(Enums.CardType.Skill, "stealth", 1, _castedCard, ref _character, _trait);
             }
             else return;
 
