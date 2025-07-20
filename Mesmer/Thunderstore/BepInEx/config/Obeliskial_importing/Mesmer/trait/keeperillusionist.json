@@ -1,5 +1,5 @@
 {
-    "Activation": "None",
+    "Activation": "CastCard",
     "AuraCurseBonus1": "buffer",
     "AuraCurseBonus2": "evade",
     "AuraCurseBonus3": "stealth",
@@ -23,7 +23,7 @@
     "DamageBonusPercentValue": 0.0,
     "DamageBonusPercentValue2": 0.0,
     "DamageBonusPercentValue3": 0.0,
-    "Description": "Buffer +1, Evade +1, Stealth +1.",
+    "Description": "Buffer +1, Evade +1, Stealth +1. When you play a \"Skill\" card, gain 1 Inspire and 1 Stealth.",
     "HealFlatBonus": 0,
     "HealPercentBonus": 0.0,
     "HealReceivedFlatBonus": 0,
@@ -39,5 +39,5 @@
     "TimesPerTurn": 0,
     "TraitCard": "",
     "TraitCardForAllHeroes": "",
-    "TraitName": "Master Illusionist"
+    "TraitName": "Master Manipulator"
 }

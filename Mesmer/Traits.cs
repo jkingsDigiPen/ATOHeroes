@@ -19,7 +19,8 @@ namespace Mesmer
             "keeperaccelerate",
             "keeperrestart",
             "keeperinstability",
-            "keepertimelord"
+            "keepertimelord",
+            "keeperillusionist"
         };
 
         public static bool isDamagePreviewActive = false;
@@ -84,19 +85,44 @@ namespace Mesmer
             }
             else if(_trait == myTraitList[1])
             {
-               // Replace the Accelerate cards of Chronomancer for Eldritch Restart cards. (handled above)
+                if(!CanIncrementTraitActivations(myTraitList[1]))
+                    return;
+
+                if(_castedCard.CardType != Enums.CardType.Defense)
+                    return;
+
+                // Replace the Accelerate cards of Chronomancer for Eldritch Restart cards. (handled above)
+                // When you play a "Defense" card that costs Energy, refund 1 Energy and gain 1 Regeneration. (3 times/turn)
+                WhenYouPlayXGainY(Enums.CardType.Defense, "regeneration", 1, _castedCard, ref _character, myTraitList[1]);
+                _character.ModifyEnergy(1);
+
+                IncrementTraitActivations(myTraitList[1]);
             }
             else if(_trait == myTraitList[2])
             {
                 // Replace the Accelerate cards of Chronomancer for Instability cards. (handled above)
+                // At the start of your turn, reduce the cost of the "Mind Spell" cards in your hand by 1 until they are discarded.
+                ReduceCardTypeCostUntilDiscarded(Enums.CardType.Mind_Spell, 1, ref _character, ref heroHand, ref cardDataList, myTraitList[2]);
             }
             else if(_trait == myTraitList[3])
             {
-                 // Upgrade Eldritch Restart cards and Instability cards into their corrupted versions. (handled above)
+                // Upgrade Eldritch Restart cards and Instability cards into their corrupted versions. (handled above)
+                // At the start of your turn, shuffle 1 healer card from your vanish pile into your deck.
+                if(MatchManager.Instance.CountHeroVanish() < 1)
+                    return;
+
+                List<string> vanished = MatchManager.Instance.GetHeroVanish(_character.HeroIndex);
+
+                //MatchManager.Instance.vanish
             }
             else if(_trait == myTraitList[4])
             {
-                
+                // When you play a "Skill" card, gain 1 Inspire and 1 Stealth.
+                if(_castedCard.CardType != Enums.CardType.Skill)
+                    return;
+
+                WhenYouPlayXGainY(Enums.CardType.Skill, "inspire", 1, _castedCard, ref _character, myTraitList[4]);
+                WhenYouPlayXGainY(Enums.CardType.Skill, "stealth", 1, _castedCard, ref _character, myTraitList[4]);
             }
             else return;
 

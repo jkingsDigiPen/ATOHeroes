@@ -1,5 +1,5 @@
 {
-    "Activation": "None",
+    "Activation": "BeginTurn",
     "AuraCurseBonus1": "insane",
     "AuraCurseBonus2": "dark",
     "AuraCurseBonus3": "",
@@ -23,7 +23,7 @@
     "DamageBonusPercentValue": 0.0,
     "DamageBonusPercentValue2": 0.0,
     "DamageBonusPercentValue3": 0.0,
-    "Description": "Insane +1, Dark +1. Replace the \"Accelerate\" cards of Chronomancer for \"Instability\" cards.",
+    "Description": "Insane +1, Dark +1. Replace the \"Accelerate\" cards of Chronomancer for \"Instability\" cards. At the start of your turn, reduce the cost of the \"Mind Spell\" cards in your hand by 1 until they are discarded.",
     "HealFlatBonus": 0,
     "HealPercentBonus": 0.0,
     "HealReceivedFlatBonus": 0,
