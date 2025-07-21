@@ -4,10 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using static UnityEngine.Mathf;
-using static Twilight.Plugin;
+using static Janus.Plugin;
 using System.Collections.ObjectModel;
 
-namespace Twilight
+namespace Janus
 {
     public class CustomFunctions
     {
