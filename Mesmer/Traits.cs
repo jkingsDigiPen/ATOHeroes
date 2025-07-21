@@ -3,8 +3,6 @@ using Obeliskial_Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
-using UnityEngine.TextCore.Text;
 using static Mesmer.CustomFunctions;
 using static Mesmer.Plugin;
 
@@ -57,12 +55,14 @@ namespace Mesmer
                 string cardID = _trait;
                 for (int i = 0; i < teamHero.Length; i++)
                 {
+                    // ... or Eldritch Restart
                     if (_character.HaveTrait(myTraitList[1]))
                     {
                         cardID = ((!_character.HaveTrait(myTraitList[3])) ? myTraitList[1] : myTraitList[1] + "rare");
                         break;
                     }
 
+                    // ... or Instability
                     if (_character.HaveTrait(myTraitList[2]))
                     {
                         cardID = ((!_character.HaveTrait(myTraitList[3])) ? myTraitList[2] : myTraitList[2] + "rare");

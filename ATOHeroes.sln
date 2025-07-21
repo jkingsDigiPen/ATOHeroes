@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gorio", "Gorio\Gorio.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mesmer", "Mesmer\Mesmer.csproj", "{8CDCD2D7-2303-4486-B223-2FF20C62E93B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Twilight", "Twilight\Twilight.csproj", "{A6494566-4203-4C4B-9719-28573143EA47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Janus", "Janus\Janus.csproj", "{A6494566-4203-4C4B-9719-28573143EA47}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

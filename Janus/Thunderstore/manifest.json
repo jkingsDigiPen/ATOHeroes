@@ -1,0 +1,9 @@
+{
+    "name": "Janus, the Dualist",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/jkingsDigiPen/ATOHeroes/tree/main/Janus",
+    "description": "Warrior that can learn and craft healer cards.",
+    "dependencies": [
+        "meds-Obeliskial_Content-1.2.2"
+    ]
+}

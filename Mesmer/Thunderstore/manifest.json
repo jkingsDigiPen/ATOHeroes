@@ -1,8 +1,8 @@
 {
-    "name": "Corypha, the Siren",
+    "name": "Mesmer, the Riftkeeper",
     "version_number": "1.0.0",
-    "website_url": "https://github.com/jkingsDigiPen/ATOHeroes/tree/main/Corypha",
-    "description": "Scout that can learn and craft mage cards.",
+    "website_url": "https://github.com/jkingsDigiPen/ATOHeroes/tree/main/Mesmer",
+    "description": "Healer specializing in speed manipulation and removing auras and curses.",
     "dependencies": [
         "meds-Obeliskial_Content-1.2.2"
     ]

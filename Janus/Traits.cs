@@ -3,11 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Obeliskial_Content;
-using static Twilight.CustomFunctions;
-using static Twilight.Plugin;
+using static Janus.CustomFunctions;
+using static Janus.Plugin;
 using UnityEngine;
 
-namespace Twilight
+namespace Janus
 {
     [HarmonyPatch]
     internal class Traits

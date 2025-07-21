@@ -5,9 +5,9 @@ using HarmonyLib;
 using System;
 using static Obeliskial_Essentials.Essentials;
 
-namespace Twilight
+namespace Janus
 {
-    [BepInPlugin(PluginInfo.PLUGIN_GUID, "Twilight", PluginInfo.PLUGIN_VERSION)]
+    [BepInPlugin(PluginInfo.PLUGIN_GUID, "Janus", PluginInfo.PLUGIN_VERSION)]
     [BepInDependency("com.stiffmeds.obeliskialessentials")]
     [BepInDependency("com.stiffmeds.obeliskialcontent")]
     [BepInProcess("AcrossTheObelisk.exe")]
@@ -19,7 +19,7 @@ namespace Twilight
 
         public static ConfigEntry<bool> EnableDebugging { get; set; }
 
-        public static string characterName = "Twilight";
+        public static string characterName = "Janus";
         public static string heroName = characterName;
 
         public static string subclassName = "Dualist"; // needs caps
