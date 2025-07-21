@@ -552,6 +552,61 @@ namespace Janus
         }
 
         /// <summary>
+        /// Gets the character with the lowest health (percentage-wise) from a character array (either heroes or NPCs)
+        /// </summary>
+        /// <param name="characters">Array to get the character from</param>
+        /// <returns>The lowest health character</returns>
+        public static Character GetLowestHealthCharacter(Character[] characters)
+        {
+            List<int> validCharacters = GetValidCharacters(characters);
+
+            int num = -1;
+            float num2 = 99.9999f;
+            for (int i = 0; i < validCharacters.Count; i++)
+            {
+                float hpPercent = characters[validCharacters[i]].GetHpPercent();
+                if (hpPercent <= num2)
+                {
+                    num2 = hpPercent;
+                    num = i;
+                }
+            }
+
+            if (num > -1)
+            {
+                List<int> list = new List<int>();
+                list.Add(num);
+                for (int j = 0; j < validCharacters.Count; j++)
+                {
+                    if (j != num && characters[validCharacters[j]].GetHpPercent() == num2)
+                    {
+                        list.Add(j);
+                    }
+                }
+
+                if (list.Count > 0)
+                {
+                    int k = 0;
+                    for (; k < 10; k++)
+                    {
+                        num = ((list.Count <= 1) ? list[0] : list[SafeRandomInt(0, list.Count)]);
+                        if (k == 9)
+                        {
+                            num = list[0];
+                        }
+
+                        if (num < validCharacters.Count)
+                        {
+                            return characters[validCharacters[num]];
+                        }
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        /// <summary>
         /// Checks to see if the character is a living hero
         /// </summary>
         /// <param name="_character">Character to check</param>
