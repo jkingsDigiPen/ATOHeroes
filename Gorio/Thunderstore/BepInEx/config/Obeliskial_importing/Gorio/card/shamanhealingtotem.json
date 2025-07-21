@@ -16,7 +16,7 @@
     "UpgradesTo1": "shamanhealingtotema",
     "UpgradesTo2": "shamanhealingtotemb",
     "UpgradesToRare": "",
-    "CardClass": "Healer",
+    "CardClass": "Special",
     "CardType": "Healing_Spell",
     "CardTypeAux": [
         "Spell"
