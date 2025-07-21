@@ -1,0 +1,15 @@
+{
+  "BaseSkin": true,
+  "PerkLevel": 0,
+  "SkinGO": "skinjanus",
+  "SkinID": "janusbase",
+  "SkinName": "Dualist",
+  "SkinOrder": 0,
+  "SkinSubclass": "dualist",
+  "Sku": "",
+  "SpritePortrait": "janus1Portrait",
+  "SpritePortraitGrande": "janus1PortraitGrande",
+  "SpriteSilueta": "janus1silueta",
+  "SpriteSiluetaGrande": "janus1siluetaGrande",
+  "SteamStat": ""
+}

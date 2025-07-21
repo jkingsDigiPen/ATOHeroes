@@ -1,10 +1,10 @@
 {
   "AdventureLevel": 0,
   "BaseCardback": true,
-  "CardbackID": "twilightcardback",
+  "CardbackID": "januscardback",
   "CardbackName": "Default",
   "CardbackOrder": 1000,
-  "CardbackSprite": "CardBackScout",
+  "CardbackSprite": "CardBackHealWarrior",
   "CardbackSubclass": "dualist",
   "Locked": false,
   "ObeliskLevel": 0,
