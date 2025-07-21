@@ -5,8 +5,8 @@
     "{\n    \"UnitsInDeck\": 3,\n    \"Card\": \"holyslashw\"\n}",
     "{\n    \"UnitsInDeck\": 3,\n    \"Card\": \"dualistshadowslash\"\n}",
     "{\n    \"UnitsInDeck\": 3,\n    \"Card\": \"intercept\"\n}",
-    "{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"heal\"\n}",
-    "{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"holysmite\"\n}",
+    "{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"rayofhope\"\n}",
+    "{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"shadowmend\"\n}",
     "{\n    \"UnitsInDeck\": 1,\n    \"Card\": \"yinyangbolt\"\n}",
     "{\n    \"UnitsInDeck\": 1,\n    \"Card\": \"dualistdivineguard\"\n}"
   ],
@@ -28,7 +28,7 @@
   "HeroClass": "Warrior",
   "HeroClassSecondary": "Healer",
   "HitSound": "",
-  "HP": 70,
+  "HP": 82,
   "ID": "dualist",
   "Item": "corruptedplate",
   "MaxHP": [
@@ -42,11 +42,11 @@
   "ResistSlashing": 10,
   "ResistBlunt": 10,
   "ResistPiercing": 10,
-  "ResistFire": 5,
-  "ResistCold": 5,
-  "ResistLightning": 5,
-  "ResistHoly": 10,
-  "ResistShadow": 10,
+  "ResistFire": 0,
+  "ResistCold": 0,
+  "ResistLightning": 0,
+  "ResistHoly": 15,
+  "ResistShadow": 15,
   "ResistMind": 0,
   "Speed": 15,
   "SpriteBorderLocked": "",
@@ -81,6 +81,6 @@
     "intercept",
     "benediction",
     "yinyangbolt",
-    "bulkheal"
+    "rayofhope"
   ]
 }
