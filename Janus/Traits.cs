@@ -52,7 +52,7 @@ namespace Janus
             // activate traits
             if (_trait == myTraitList[0])
             {
-			    // When you apply "Sanctify" charges, heal the most damaged hero for that amount.
+								// When you apply "Sanctify" charges, heal the most damaged hero for that amount.
                 // When you apply "Dark" charges, apply that amount of "Shield" charges to the most damaged hero.
                 // -These amounts do not gain bonuses-"
                 Character mostDamagedHero = GetLowestHealthCharacter(teamHero);

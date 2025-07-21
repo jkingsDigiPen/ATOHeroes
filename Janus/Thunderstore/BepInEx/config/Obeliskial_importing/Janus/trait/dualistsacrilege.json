@@ -23,7 +23,7 @@
   "DamageBonusPercentValue": 0.0,
   "DamageBonusPercentValue2": 0.0,
   "DamageBonusPercentValue3": 0.0,
-	"Description": "At the start of your turn, transform all \"Bless\" charges on monsters to \"Sanctify\" and \"Dark\" charges.",
+	"Description": "At the start of your turn, apply \"Sanctify\" and \"Dark\" charges on all monsters equal to the number of \"Bless\" charges on this hero.",
 	"HealFlatBonus": 0,
   "HealPercentBonus": 0.0,
   "HealReceivedFlatBonus": 0,
