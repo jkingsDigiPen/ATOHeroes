@@ -175,7 +175,7 @@
     "EffectTrailSpeed": 1,
     "IsPetAttack": false,
     "IsPetCast": false,
-    "Lazy": true,
+    "Lazy": false,
     "ModifiedByTrait": false,
     "MoveToCenter": false,
     "PetFront": true,
