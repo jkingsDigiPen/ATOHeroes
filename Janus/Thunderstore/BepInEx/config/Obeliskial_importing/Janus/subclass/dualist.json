@@ -2,7 +2,7 @@
   "ActionSound": "",
   "AutoUnlock": true,
   "Cards": [
-    "{\n    \"UnitsInDeck\": 3,\n    \"Card\": \"holyslashw\"\n}",
+		"{\n    \"UnitsInDeck\": 3,\n    \"Card\": \"dualistholycleave\"\n}",
     "{\n    \"UnitsInDeck\": 3,\n    \"Card\": \"dualistshadowslash\"\n}",
     "{\n    \"UnitsInDeck\": 3,\n    \"Card\": \"intercept\"\n}",
     "{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"shieldofwarding\"\n}",
