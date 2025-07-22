@@ -2,12 +2,12 @@
   "ActionSound": "",
   "AutoUnlock": true,
   "Cards": [
-    "{\n    \"UnitsInDeck\": 3,\n    \"Card\": \"shamanthunderrune\"\n}",
-		"{\n    \"UnitsInDeck\": 3,\n    \"Card\": \"shamanfrostrune\"\n}",
+		"{\n    \"UnitsInDeck\": 3,\n    \"Card\": \"shamancrashlightning\"\n}",
     "{\n    \"UnitsInDeck\": 3,\n    \"Card\": \"innervate\"\n}",
-		"{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"shamancrashlightning\"\n}",
+		"{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"shamanthunderrune\"\n}",
+		"{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"shamanfrostrune\"\n}",
     "{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"healingrain\"\n}",
-    "{\n    \"UnitsInDeck\": 1,\n    \"Card\": \"shamanpurgingwinds\"\n}",
+    "{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"shamanpurgingwinds\"\n}",
     "{\n    \"UnitsInDeck\": 1,\n    \"Card\": \"shamanhealingtotem\"\n}"
   ],
   "ChallengePack0": "gorio",
