@@ -1,9 +1,9 @@
 {
     "Aura": "block",
     "Aura2": "buffer",
-    "Aura3": "mitigate",
+    "Aura3": "fortify",
     "AuraCharges": 1,
-    "AuraCharges2": 2,
+    "AuraCharges2": 3,
     "AuraCharges3": 2,
     "AuraSelf": "",
     "AuraSelf2": "",

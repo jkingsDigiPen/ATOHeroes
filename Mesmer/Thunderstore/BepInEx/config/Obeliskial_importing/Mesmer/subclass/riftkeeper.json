@@ -2,12 +2,12 @@
   "ActionSound": "",
   "AutoUnlock": true,
   "Cards": [
-    "{\n    \"UnitsInDeck\": 4,\n    \"Card\": \"hallucination\"\n}",
+		"{\n    \"UnitsInDeck\": 3,\n    \"Card\": \"dejavu\"\n}",
+    "{\n    \"UnitsInDeck\": 3,\n    \"Card\": \"hallucination\"\n}",
     "{\n    \"UnitsInDeck\": 3,\n    \"Card\": \"barrier\"\n}",
-    "{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"dejavu\"\n}",
     "{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"dispelmagic\"\n}",
     "{\n    \"UnitsInDeck\": 2,\n    \"Card\": \"fade\"\n}",
-    "{\n    \"UnitsInDeck\": 1,\n    \"Card\": \"twilightswamp\"\n}",
+    "{\n    \"UnitsInDeck\": 1,\n    \"Card\": \"temporalchains\"\n}",
     "{\n    \"UnitsInDeck\": 1,\n    \"Card\": \"keeperdimensionalshift\"\n}"
   ],
   "ChallengePack0": "mentalist",
@@ -81,6 +81,6 @@
     "dejavu",
     "dispelmagic",
     "fade",
-    "twilightswamp"
+    "temporalchains"
   ]
 }
