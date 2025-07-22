@@ -142,7 +142,7 @@
     "SpecialValue1": "CardsVanish",
     "SpecialValue2": "None",
     "SpecialValueGlobal": "None",
-    "SpecialValueModifier1": 100,
+    "SpecialValueModifier1": 150,
     "SpecialValueModifier2": 0,
     "SpecialValueModifierGlobal": 0,
     "AddCard": 0,
