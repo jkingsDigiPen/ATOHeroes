@@ -2,7 +2,7 @@
     "Aura": "block",
     "Aura2": "block",
     "Aura3": "shield",
-    "AuraCharges": 12,
+    "AuraCharges": 8,
     "AuraCharges2": 1,
     "AuraCharges3": 12,
     "AuraSelf": "",
@@ -16,7 +16,7 @@
     "UpgradesTo1": "shamanfrostrunea",
     "UpgradesTo2": "shamanfrostruneb",
     "UpgradesToRare": "shamanfrostrunerare",
-    "CardClass": "Mage",
+    "CardClass": "Healer",
     "CardType": "Defense",
     "CardTypeAux": [
         "Skill"

@@ -1,8 +1,8 @@
 {
-    "Aura": "block",
+    "Aura": "",
     "Aura2": "block",
     "Aura3": "shield",
-    "AuraCharges": 16,
+    "AuraCharges": 0,
     "AuraCharges2": 1,
     "AuraCharges3": 16,
     "AuraSelf": "",
@@ -16,7 +16,7 @@
     "UpgradesTo1": "",
     "UpgradesTo2": "",
     "UpgradesToRare": "",
-    "CardClass": "Mage",
+    "CardClass": "Healer",
     "CardType": "Defense",
     "CardTypeAux": [
         "Skill"
@@ -27,7 +27,7 @@
     "Curse2": "wet",
     "Curse3": "",
     "CurseCharges": 4,
-    "CurseCharges2": 3,
+    "CurseCharges2": 2,
     "CurseCharges3": 0,
     "CurseSelf": "",
     "CurseSelf2": "",

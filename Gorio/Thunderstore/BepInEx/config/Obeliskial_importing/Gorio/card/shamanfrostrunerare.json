@@ -2,7 +2,7 @@
     "Aura": "block",
     "Aura2": "block",
     "Aura3": "shield",
-    "AuraCharges": 20,
+    "AuraCharges": 12,
     "AuraCharges2": 1,
     "AuraCharges3": 20,
     "AuraSelf": "",
@@ -16,7 +16,7 @@
     "UpgradesTo1": "",
     "UpgradesTo2": "",
     "UpgradesToRare": "",
-    "CardClass": "Mage",
+    "CardClass": "Healer",
     "CardType": "Defense",
     "CardTypeAux": [
         "Skill"

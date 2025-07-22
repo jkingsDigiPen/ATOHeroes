@@ -139,7 +139,7 @@
     "SpecialAuraCurseName1": "",
     "SpecialAuraCurseName2": "",
     "SpecialAuraCurseNameGlobal": "",
-    "SpecialValue1": "CardsDiscardTarget",
+    "SpecialValue1": "CardsDeck",
     "SpecialValue2": "None",
     "SpecialValueGlobal": "None",
     "SpecialValueModifier1": 150,
