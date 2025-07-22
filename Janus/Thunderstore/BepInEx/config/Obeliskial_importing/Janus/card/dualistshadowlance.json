@@ -17,9 +17,8 @@
     "UpgradesTo2": "dualistshadowlanceb",
     "UpgradesToRare": "",
     "CardClass": "Special",
-    "CardType": "Melee_Attack",
+    "CardType": "None",
     "CardTypeAux": [
-        "Attack"
     ],
     "CardName": "Shadow Lance",
     "CardRarity": "Rare",
@@ -72,7 +71,7 @@
     "HealAuraCurseName2": "",
     "HealAuraCurseName3": "",
     "HealAuraCurseName4": "",
-    "HealAuraCurseSelf": "vitality",
+    "HealAuraCurseSelf": "",
     "HealCurses": 0,
     "HealEnergyBonus": 0,
     "HealSelf": 0,
