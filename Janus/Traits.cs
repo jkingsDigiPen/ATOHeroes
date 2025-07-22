@@ -79,15 +79,15 @@ namespace Janus
             }
             else if(_trait == myTraitList[2])
             {
-                // At the start of your turn, transform all "Bless" charges on monsters to "Sanctify" and "Dark" charges.
+                // Bless +1. At the start of your turn, apply "Sanctify" and "Dark" charges
+                // to all monsters equal to the number of "Bless" charges on this hero.
+                int blessStacks = _character.GetAuraCharges("bless");
+                if(blessStacks < 1) return;
+                
                 foreach(NPC monster in teamNpc)
                 {
                     if(!IsLivingNPC(monster)) continue;
 
-                    int blessStacks = monster.GetAuraCharges("bless");
-                    if(blessStacks < 1) continue;
-
-                    ApplyAuraCurseToTarget("bless", -blessStacks, monster, _character, false);
                     ApplyAuraCurseToTarget("sanctify", blessStacks, monster, _character, false);
                     ApplyAuraCurseToTarget("dark", blessStacks, monster, _character, false);
                 }
